@@ -1,23 +1,36 @@
 package xyz.pplax.pplaxnetdisk.domain;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 /**
 * 
 * @TableName music
 */
+@Data
+@Table(name = "music")
+@Entity
+@TableName("music")
 public class Music implements Serializable {
 
     /**
     * 
     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableId(type = IdType.AUTO)
+    @Column(columnDefinition="bigint(20)")
     @NotNull(message="[]不能为空")
     @ApiModelProperty("")
     private Long musicid;
@@ -73,6 +86,7 @@ public class Music implements Serializable {
     /**
     * 文件id
     */
+    @Column(columnDefinition = "bigint(20) comment '文件id'")
     @ApiModelProperty("文件id")
     private Long fileid;
     /**
@@ -85,6 +99,7 @@ public class Music implements Serializable {
     /**
     * 歌词
     */
+    @Column(columnDefinition="varchar(10000) comment '歌词'")
     @Size(max= 10000,message="编码长度不能超过10000")
     @ApiModelProperty("歌词")
     @Length(max= 10000,message="编码长度不能超过10,000")
@@ -139,274 +154,8 @@ public class Music implements Serializable {
     /**
     * 
     */
+    @Column(columnDefinition = "mediumblob")
     @ApiModelProperty("")
     private byte[] albumimage;
-
-    /**
-    * 
-    */
-    private void setMusicid(Long musicid){
-    this.musicid = musicid;
-    }
-
-    /**
-    * 
-    */
-    private void setAlbum(String album){
-    this.album = album;
-    }
-
-    /**
-    * 
-    */
-    private void setAlbumartist(String albumartist){
-    this.albumartist = albumartist;
-    }
-
-    /**
-    * 
-    */
-    private void setArtist(String artist){
-    this.artist = artist;
-    }
-
-    /**
-    * 
-    */
-    private void setComment(String comment){
-    this.comment = comment;
-    }
-
-    /**
-    * 
-    */
-    private void setComposer(String composer){
-    this.composer = composer;
-    }
-
-    /**
-    * 
-    */
-    private void setCopyright(String copyright){
-    this.copyright = copyright;
-    }
-
-    /**
-    * 
-    */
-    private void setEncoder(String encoder){
-    this.encoder = encoder;
-    }
-
-    /**
-    * 文件id
-    */
-    private void setFileid(Long fileid){
-    this.fileid = fileid;
-    }
-
-    /**
-    * 
-    */
-    private void setGenre(String genre){
-    this.genre = genre;
-    }
-
-    /**
-    * 歌词
-    */
-    private void setLyrics(String lyrics){
-    this.lyrics = lyrics;
-    }
-
-    /**
-    * 
-    */
-    private void setOriginalartist(String originalartist){
-    this.originalartist = originalartist;
-    }
-
-    /**
-    * 
-    */
-    private void setPublicer(String publicer){
-    this.publicer = publicer;
-    }
-
-    /**
-    * 
-    */
-    private void setTitle(String title){
-    this.title = title;
-    }
-
-    /**
-    * 
-    */
-    private void setTrack(String track){
-    this.track = track;
-    }
-
-    /**
-    * 
-    */
-    private void setTracklength(Double tracklength){
-    this.tracklength = tracklength;
-    }
-
-    /**
-    * 
-    */
-    private void setUrl(String url){
-    this.url = url;
-    }
-
-    /**
-    * 
-    */
-    private void setYear(String year){
-    this.year = year;
-    }
-
-    /**
-    * 
-    */
-    private void setAlbumimage(byte[] albumimage){
-    this.albumimage = albumimage;
-    }
-
-
-    /**
-    * 
-    */
-    private Long getMusicid(){
-    return this.musicid;
-    }
-
-    /**
-    * 
-    */
-    private String getAlbum(){
-    return this.album;
-    }
-
-    /**
-    * 
-    */
-    private String getAlbumartist(){
-    return this.albumartist;
-    }
-
-    /**
-    * 
-    */
-    private String getArtist(){
-    return this.artist;
-    }
-
-    /**
-    * 
-    */
-    private String getComment(){
-    return this.comment;
-    }
-
-    /**
-    * 
-    */
-    private String getComposer(){
-    return this.composer;
-    }
-
-    /**
-    * 
-    */
-    private String getCopyright(){
-    return this.copyright;
-    }
-
-    /**
-    * 
-    */
-    private String getEncoder(){
-    return this.encoder;
-    }
-
-    /**
-    * 文件id
-    */
-    private Long getFileid(){
-    return this.fileid;
-    }
-
-    /**
-    * 
-    */
-    private String getGenre(){
-    return this.genre;
-    }
-
-    /**
-    * 歌词
-    */
-    private String getLyrics(){
-    return this.lyrics;
-    }
-
-    /**
-    * 
-    */
-    private String getOriginalartist(){
-    return this.originalartist;
-    }
-
-    /**
-    * 
-    */
-    private String getPublicer(){
-    return this.publicer;
-    }
-
-    /**
-    * 
-    */
-    private String getTitle(){
-    return this.title;
-    }
-
-    /**
-    * 
-    */
-    private String getTrack(){
-    return this.track;
-    }
-
-    /**
-    * 
-    */
-    private Double getTracklength(){
-    return this.tracklength;
-    }
-
-    /**
-    * 
-    */
-    private String getUrl(){
-    return this.url;
-    }
-
-    /**
-    * 
-    */
-    private String getYear(){
-    return this.year;
-    }
-
-    /**
-    * 
-    */
-    private byte[] getAlbumimage(){
-    return this.albumimage;
-    }
 
 }
