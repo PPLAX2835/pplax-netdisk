@@ -3,15 +3,9 @@ package xyz.pplax.pplaxnetdisk;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import xyz.pplax.pplaxnetdisk.domain.CommonFile;
-import xyz.pplax.pplaxnetdisk.domain.File;
-import xyz.pplax.pplaxnetdisk.domain.FilePermission;
-import xyz.pplax.pplaxnetdisk.domain.FileType;
+import xyz.pplax.pplaxnetdisk.domain.*;
 import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
-import xyz.pplax.pplaxnetdisk.mapper.CommonFileMapper;
-import xyz.pplax.pplaxnetdisk.mapper.FileMapper;
-import xyz.pplax.pplaxnetdisk.mapper.FilePermissionMapper;
-import xyz.pplax.pplaxnetdisk.mapper.FileTypeMapper;
+import xyz.pplax.pplaxnetdisk.mapper.*;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
 
@@ -66,6 +60,70 @@ class PPLAXNetdiskApplicationTests {
     void PPLAXFileTypeMapperTest() {
         FileType fileType = fileTypeMapper.selectById(1);
         System.out.println(fileType);
+    }
+
+    @Autowired
+    ImageMapper imageMapper;
+    @Test
+    void PPLAXImageMapperTest() {
+        Image image = imageMapper.selectById(1);
+        System.out.println(image);
+    }
+
+    @Autowired
+    MusicMapper musicMapper;
+    @Test
+    void PPLAXMusicMapperTest() {
+        Music music = musicMapper.selectById(1);
+        System.out.println(music);
+    }
+
+    @Autowired
+    OperationLogMapper operationLogMapper;
+    @Test
+    void PPLAXOperationLogMapperTest() {
+        OperationLog operationLog = operationLogMapper.selectById(1);
+        System.out.println(operationLog);
+    }
+
+    @Autowired
+    PictureFileMapper pictureFileMapper;
+    @Test
+    void PPLAXPictureFileMapperTest() {
+        PictureFile pictureFile = pictureFileMapper.selectById(1);
+        System.out.println(pictureFile);
+    }
+
+    @Autowired
+    StorageMapper storageMapper;
+    @Test
+    void PPLAXStorageMapperTest() {
+        Storage storage = storageMapper.selectById(1);
+        System.out.println(storage);
+    }
+
+    @Autowired
+    SysParamMapper sysParamMapper;
+    @Test
+    void PPLAXSysParamMapperTest() {
+        SysParam sysParam = sysParamMapper.selectById(1);
+        System.out.println(sysParam);
+    }
+
+    @Autowired
+    UploadTaskMapper uploadTaskMapper;
+    @Test
+    void PPLAXUploadTaskMapperTest() {
+        UploadTask uploadTask = uploadTaskMapper.selectById(1);
+        System.out.println(uploadTask);
+    }
+
+    @Autowired
+    UserLoginInfoMapper userLoginInfoMapper;
+    @Test
+    void PPLAXUserLoginInfoMapperTest() {
+        UserLoginInfo userLoginInfo = userLoginInfoMapper.selectById(1);
+        System.out.println(userLoginInfo);
     }
 
 
