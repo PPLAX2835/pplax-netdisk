@@ -4,10 +4,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import xyz.pplax.pplaxnetdisk.domain.CommonFile;
+import xyz.pplax.pplaxnetdisk.domain.File;
 import xyz.pplax.pplaxnetdisk.domain.FilePermission;
+import xyz.pplax.pplaxnetdisk.domain.FileType;
 import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
 import xyz.pplax.pplaxnetdisk.mapper.CommonFileMapper;
+import xyz.pplax.pplaxnetdisk.mapper.FileMapper;
 import xyz.pplax.pplaxnetdisk.mapper.FilePermissionMapper;
+import xyz.pplax.pplaxnetdisk.mapper.FileTypeMapper;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
 
@@ -46,5 +50,23 @@ class PPLAXNetdiskApplicationTests {
         FilePermission filePermission = filePermissionMapper.selectById(1);
         System.out.println(filePermission);
     }
+
+
+    @Autowired
+    FileMapper fileMapper;
+    @Test
+    void PPLAXFileMapperTest() {
+        File file = fileMapper.selectById(1);
+        System.out.println(file);
+    }
+
+    @Autowired
+    FileTypeMapper fileTypeMapper;
+    @Test
+    void PPLAXFileTypeMapperTest() {
+        FileType fileType = fileTypeMapper.selectById(1);
+        System.out.println(fileType);
+    }
+
 
 }
