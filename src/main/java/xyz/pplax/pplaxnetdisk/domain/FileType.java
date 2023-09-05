@@ -1,29 +1,80 @@
 package xyz.pplax.pplaxnetdisk.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
-import javax.persistence.*;
+import java.io.Serializable;
+
+import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.Length;
 
 /**
- * @author MAC
- * @version 1.0
- * @description: TODO
- * @date 2021/12/23 22:11
- */
-@Data
-@Table(name = "filetype")
-@Entity
-@TableName("filetype")
-public class FileType {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @TableId(type = IdType.AUTO)
-    private Integer fileTypeId;
-    @Column(columnDefinition="varchar(50) comment '文件类型名'")
-    private String fileTypeName;
-    @Column(columnDefinition="int(2) comment '次序'")
-    private Integer orderNum;
+* 
+* @TableName file_type
+*/
+public class FileType implements Serializable {
+
+    /**
+    * 
+    */
+    @NotNull(message="[]不能为空")
+    @ApiModelProperty("")
+    private Integer filetypeid;
+    /**
+    * 文件类型名
+    */
+    @Size(max= 50,message="编码长度不能超过50")
+    @ApiModelProperty("文件类型名")
+    @Length(max= 50,message="编码长度不能超过50")
+    private String filetypename;
+    /**
+    * 次序
+    */
+    @ApiModelProperty("次序")
+    private Integer ordernum;
+
+    /**
+    * 
+    */
+    private void setFiletypeid(Integer filetypeid){
+    this.filetypeid = filetypeid;
+    }
+
+    /**
+    * 文件类型名
+    */
+    private void setFiletypename(String filetypename){
+    this.filetypename = filetypename;
+    }
+
+    /**
+    * 次序
+    */
+    private void setOrdernum(Integer ordernum){
+    this.ordernum = ordernum;
+    }
+
+
+    /**
+    * 
+    */
+    private Integer getFiletypeid(){
+    return this.filetypeid;
+    }
+
+    /**
+    * 文件类型名
+    */
+    private String getFiletypename(){
+    return this.filetypename;
+    }
+
+    /**
+    * 次序
+    */
+    private Integer getOrdernum(){
+    return this.ordernum;
+    }
+
 }

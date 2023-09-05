@@ -1,29 +1,78 @@
 package xyz.pplax.pplaxnetdisk.domain.user;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
-import javax.persistence.*;
+import java.io.Serializable;
+
+import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.Length;
 
 /**
- * @author MAC
- * @version 1.0
- * @description: TODO
- * @date 2021/12/30 16:14
- */
-@Data
-@Table(name = "role_permission")
-@Entity
-@TableName("role_permission")
-public class RolePermission {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @TableId(type = IdType.AUTO)
+* 
+* @TableName role_permission
+*/
+public class RolePermission implements Serializable {
+
+    /**
+    * 
+    */
+    @NotNull(message="[]不能为空")
+    @ApiModelProperty("")
     private Long id;
-    @Column(columnDefinition="bigint(20) comment '角色id'")
-    private Long roleId;
-    @Column(columnDefinition="bigint(20) comment '权限id'")
-    private Long permissionId;
+    /**
+    * 权限id
+    */
+    @ApiModelProperty("权限id")
+    private Long permissionid;
+    /**
+    * 角色id
+    */
+    @ApiModelProperty("角色id")
+    private Long roleid;
+
+    /**
+    * 
+    */
+    private void setId(Long id){
+    this.id = id;
+    }
+
+    /**
+    * 权限id
+    */
+    private void setPermissionid(Long permissionid){
+    this.permissionid = permissionid;
+    }
+
+    /**
+    * 角色id
+    */
+    private void setRoleid(Long roleid){
+    this.roleid = roleid;
+    }
+
+
+    /**
+    * 
+    */
+    private Long getId(){
+    return this.id;
+    }
+
+    /**
+    * 权限id
+    */
+    private Long getPermissionid(){
+    return this.permissionid;
+    }
+
+    /**
+    * 角色id
+    */
+    private Long getRoleid(){
+    return this.roleid;
+    }
+
 }

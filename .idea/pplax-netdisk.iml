@@ -257,5 +257,6 @@
     <orderEntry type="library" name="Maven: org:jaudiotagger:2.0.3" level="project" />
     <orderEntry type="library" name="Maven: com.inversoft:prime-jwt:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:2.4.2" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-annotations:1.6.2" level="project" />
   </component>
 </module>

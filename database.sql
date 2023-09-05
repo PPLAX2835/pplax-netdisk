@@ -6,7 +6,7 @@ default collate utf8_general_ci;
 
 use pplax_file;
 
-create table commonfile
+create table common_file
 (
     commonFileId varchar(20) not null
         primary key,
@@ -28,7 +28,7 @@ create table file
     storageType  int          null comment '存储类型'
 );
 
-create table fileclassification
+create table file_classification
 (
     fileClassificationId bigint auto_increment
         primary key,
@@ -36,7 +36,7 @@ create table fileclassification
     fileTypeId           bigint      null comment '文件类型id'
 );
 
-create table fileextend
+create table file_extend
 (
     fileExtendName   varchar(25)  not null
         primary key,
@@ -44,7 +44,7 @@ create table fileextend
     fileExtendImgUrl varchar(100) null comment '文件扩展名预览图'
 );
 
-create table filepermission
+create table file_permission
 (
     filePermissionId   bigint auto_increment
         primary key,
@@ -53,7 +53,7 @@ create table filepermission
     userId             bigint      null comment '用户id'
 );
 
-create table filetype
+create table file_type
 (
     fileTypeId   int         not null
         primary key,
@@ -115,7 +115,7 @@ create table notice
     validDateTime   varchar(25)  null comment '有效时间'
 );
 
-create table operationlog
+create table operation_log
 (
     operationLogId bigint auto_increment
         primary key,
@@ -148,7 +148,7 @@ create table permission
     resourceType   int         null comment '资源类型'
 );
 
-create table picturefile
+create table picture_file
 (
     pictureFileId bigint auto_increment
         primary key,
@@ -164,7 +164,7 @@ create table picturefile
     userId        bigint       null comment '用户id'
 );
 
-create table recoveryfile
+create table recovery_file
 (
     recoveryFileId bigint auto_increment
         primary key,
@@ -209,7 +209,7 @@ create table share
     userId         varchar(20)  null comment '用户id'
 );
 
-create table sharefile
+create table share_file
 (
     shareFileId   varchar(255) not null
         primary key,
@@ -231,7 +231,7 @@ create table storage
         unique (userId)
 );
 
-create table sysparam
+create table sys_param
 (
     sysParamId    bigint auto_increment
         primary key,
@@ -241,7 +241,7 @@ create table sysparam
     sysParamValue varchar(50) null
 );
 
-create table uploadtask
+create table upload_task
 (
     uploadTaskId bigint auto_increment
         primary key,
@@ -254,7 +254,7 @@ create table uploadtask
     userId       bigint       null comment '用户id'
 );
 
-create table uploadtaskdetail
+create table upload_task_detail
 (
     uploadTaskDetailId bigint auto_increment
         primary key,
@@ -302,7 +302,7 @@ create table user_role
     userId     varchar(255) null
 );
 
-create table userfile
+create table user_file
 (
     userFileId     varchar(20)             not null
         primary key,
@@ -324,7 +324,7 @@ create table userfile
         unique (userId, filePath, fileName, extendName, deleteFlag, isDir)
 );
 
-create table userlogininfo
+create table user_login_info
 (
     userLoginId   bigint auto_increment
         primary key,
@@ -339,170 +339,173 @@ delete from role where roleId in (1, 2);
 INSERT INTO `role` (`roleId`, `available`, `description`, `roleName`, `createTime`, `createUserId`, `modifyTime`, `modifyUserId`) VALUES (1, 1, '超级管理员', '超级管理员', NULL, NULL, '2021-11-10 20:46:06', NULL);
 INSERT INTO `role` (`roleId`, `available`, `description`, `roleName`, `createTime`, `createUserId`, `modifyTime`, `modifyUserId`) VALUES (2, 1, '普通用户', '普通用户', NULL, NULL, NULL, NULL);
 
-delete from sysparam where sysParamId in (1, 2, 3);
-insert into sysparam (sysParamId, sysParamKey, sysParamValue, sysParamDesc) values (1, 'totalStorageSize', '1024', '总存储大小（单位M）');
-insert into sysparam (sysParamId, sysParamKey, sysParamValue, sysParamDesc) values (2, 'initDataFlag', '1', '系统初始化数据标识');
-insert into sysparam (sysParamId, sysParamKey, sysParamValue, sysParamDesc) values (3, 'version', '1.1.2', '当前脚本的版本号');
+delete from sys_param where sysParamId in (1, 2, 3);
+insert into sys_param (sysParamId, sysParamKey, sysParamValue, sysParamDesc) values (1, 'totalStorageSize', '1024', '总存储大小（单位M）');
+insert into sys_param (sysParamId, sysParamKey, sysParamValue, sysParamDesc) values (2, 'initDataFlag', '1', '系统初始化数据标识');
+insert into sys_param (sysParamId, sysParamKey, sysParamValue, sysParamDesc) values (3, 'version', '1.1.2', '当前脚本的版本号');
 
-delete from filetype where fileTypeId in (0, 1, 2, 3, 4, 5);
-INSERT INTO `filetype` (`fileTypeId`, `fileTypeName`) VALUES (0, '全部');
-INSERT INTO `filetype` (`fileTypeId`, `fileTypeName`) VALUES (1, '图片');
-INSERT INTO `filetype` (`fileTypeId`, `fileTypeName`) VALUES (2, '文档');
-INSERT INTO `filetype` (`fileTypeId`, `fileTypeName`) VALUES (3, '视频');
-INSERT INTO `filetype` (`fileTypeId`, `fileTypeName`) VALUES (4, '音乐');
-INSERT INTO `filetype` (`fileTypeId`, `fileTypeName`) VALUES (5, '其他');
+delete from file_type where fileTypeId in (0, 1, 2, 3, 4, 5);
+INSERT INTO file_type (`fileTypeId`, `fileTypeName`) VALUES (0, '全部');
+INSERT INTO file_type (`fileTypeId`, `fileTypeName`) VALUES (1, '图片');
+INSERT INTO file_type (`fileTypeId`, `fileTypeName`) VALUES (2, '文档');
+INSERT INTO file_type (`fileTypeId`, `fileTypeName`) VALUES (3, '视频');
+INSERT INTO file_type (`fileTypeId`, `fileTypeName`) VALUES (4, '音乐');
+INSERT INTO file_type (`fileTypeId`, `fileTypeName`) VALUES (5, '其他');
 
-delete from fileextend where 1 = 1;
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('bmp');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('jpg');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('png');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('tif');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('gif');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('jpeg');
+delete from file_extend where 1 = 1;
+INSERT INTO file_extend (`fileExtendName`) VALUES ('bmp');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('jpg');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('png');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('tif');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('gif');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('jpeg');
 
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('doc');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('docx');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('docm');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('dot');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('dotx');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('dotm');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('odt');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('fodt');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('ott');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('rtf');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('txt');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('html');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('htm');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('mht');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('xml');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('pdf');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('djvu');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('fb2');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('epub');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('xps');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('doc');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('docx');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('docm');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('dot');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('dotx');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('dotm');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('odt');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('fodt');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('ott');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('rtf');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('txt');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('html');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('htm');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('mht');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('xml');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('pdf');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('djvu');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('fb2');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('epub');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('xps');
 
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('xls');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('xlsx');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('xlsm');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('xlt');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('xltx');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('xltm');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('ods');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('fods');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('ots');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('csv');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('xls');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('xlsx');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('xlsm');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('xlt');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('xltx');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('xltm');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('ods');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('fods');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('ots');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('csv');
 
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('pps');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('ppsx');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('ppsm');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('ppt');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('pptx');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('pptm');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('pot');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('potx');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('potm');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('odp');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('fodp');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('otp');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('pps');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('ppsx');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('ppsm');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('ppt');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('pptx');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('pptm');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('pot');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('potx');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('potm');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('odp');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('fodp');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('otp');
 
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('hlp');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('wps');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('hlp');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('wps');
 
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('avi');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('mp4');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('mpg');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('mov');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('swf');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('wav');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('aif');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('au');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('mp3');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('ram');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('wma');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('mmf');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('amr');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('aac');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('flac');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('java');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('js');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('css');
-INSERT INTO `fileextend` (`fileExtendName`) VALUES ('json');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('avi');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('mp4');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('mpg');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('mov');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('swf');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('wav');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('aif');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('au');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('mp3');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('ram');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('wma');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('mmf');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('amr');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('aac');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('flac');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('java');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('js');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('css');
+INSERT INTO file_extend (`fileExtendName`) VALUES ('json');
 
-delete from fileclassification where 1 = 1;
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (1, 1, 'bmp');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (2, 1, 'jpg');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (3, 1, 'png');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (4, 1, 'tif');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (5, 1, 'gif');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (6, 1, 'jpeg');
+delete from file_classification where 1 = 1;
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (1, 1, 'bmp');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (2, 1, 'jpg');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (3, 1, 'png');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (4, 1, 'tif');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (5, 1, 'gif');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (6, 1, 'jpeg');
 
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (7, 2, 'doc');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (8, 2, 'docx');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (9, 2, 'docm');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (10, 2, 'dot');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (11, 2, 'dotx');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (12, 2, 'dotm');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (13, 2, 'odt');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (14, 2, 'fodt');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (15, 2, 'ott');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (16, 2, 'rtf');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (17, 2, 'txt');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (18, 2, 'html');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (19, 2, 'htm');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (20, 2, 'mht');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (21, 2, 'xml');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (22, 2, 'pdf');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (23, 2, 'djvu');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (24, 2, 'fb2');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (25, 2, 'epub');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (26, 2, 'xps');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (27, 2, 'xls');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (28, 2, 'xlsx');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (29, 2, 'xlsm');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (30, 2, 'xlt');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (31, 2, 'xltx');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (32, 2, 'xltm');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (33, 2, 'ods');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (34, 2, 'fods');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (35, 2, 'ots');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (36, 2, 'csv');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (37, 2, 'pps');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (38, 2, 'ppsx');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (39, 2, 'ppsm');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (40, 2, 'ppt');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (41, 2, 'pptx');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (42, 2, 'pptm');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (43, 2, 'pot');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (44, 2, 'potx');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (45, 2, 'potm');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (46, 2, 'odp');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (47, 2, 'fodp');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (48, 2, 'otp');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (49, 2, 'hlp');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (50, 2, 'wps');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (7, 2, 'doc');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (8, 2, 'docx');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (9, 2, 'docm');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (10, 2, 'dot');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (11, 2, 'dotx');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (12, 2, 'dotm');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (13, 2, 'odt');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (14, 2, 'fodt');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (15, 2, 'ott');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (16, 2, 'rtf');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (17, 2, 'txt');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (18, 2, 'html');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (19, 2, 'htm');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (20, 2, 'mht');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (21, 2, 'xml');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (22, 2, 'pdf');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (23, 2, 'djvu');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (24, 2, 'fb2');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (25, 2, 'epub');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (26, 2, 'xps');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (27, 2, 'xls');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (28, 2, 'xlsx');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (29, 2, 'xlsm');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (30, 2, 'xlt');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (31, 2, 'xltx');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (32, 2, 'xltm');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (33, 2, 'ods');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (34, 2, 'fods');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (35, 2, 'ots');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (36, 2, 'csv');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (37, 2, 'pps');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (38, 2, 'ppsx');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (39, 2, 'ppsm');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (40, 2, 'ppt');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (41, 2, 'pptx');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (42, 2, 'pptm');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (43, 2, 'pot');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (44, 2, 'potx');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (45, 2, 'potm');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (46, 2, 'odp');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (47, 2, 'fodp');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (48, 2, 'otp');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (49, 2, 'hlp');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (50, 2, 'wps');
 
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (51, 2, 'java');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (52, 2, 'js');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (53, 2, 'css');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (54, 2, 'json');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (51, 2, 'java');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (52, 2, 'js');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (53, 2, 'css');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (54, 2, 'json');
 
 
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (55, 3, 'avi');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (56, 3, 'mp4');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (57, 3, 'mpg');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (58, 3, 'mov');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (59, 3, 'swf');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (55, 3, 'avi');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (56, 3, 'mp4');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (57, 3, 'mpg');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (58, 3, 'mov');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (59, 3, 'swf');
 
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (60, 4, 'wav');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (61, 4, 'aif');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (62, 4, 'au');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (63, 4, 'mp3');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (64, 4, 'ram');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (65, 4, 'wma');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (66, 4, 'mmf');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (67, 4, 'amr');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (68, 4, 'aac');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (69, 4, 'flac');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (60, 4, 'wav');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (61, 4, 'aif');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (62, 4, 'au');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (63, 4, 'mp3');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (64, 4, 'ram');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (65, 4, 'wma');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (66, 4, 'mmf');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (67, 4, 'amr');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (68, 4, 'aac');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (69, 4, 'flac');
 
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (70, 2, 'md');
-INSERT INTO `fileclassification` (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (71, 2, 'markdown');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (70, 2, 'md');
+INSERT INTO file_classification (`fileClassificationId`, `fileTypeId`, `fileExtendName`) VALUES (71, 2, 'markdown');
+
+
+

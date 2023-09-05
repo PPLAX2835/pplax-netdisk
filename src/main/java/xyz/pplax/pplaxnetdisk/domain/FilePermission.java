@@ -1,33 +1,99 @@
 package xyz.pplax.pplaxnetdisk.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
-import javax.persistence.*;
+import java.io.Serializable;
+
+import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.Length;
 
 /**
- * @author MAC
- * @version 1.0
- * @description: TODO
- * @date 2022/1/12 14:44
- */
-@Data
-@Table(name = "filepermission")
-@Entity
-@TableName("filepermission")
-public class FilePermission {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @TableId(type = IdType.AUTO)
-    @Column(columnDefinition="bigint(20)")
-    public Long filePermissionId;
-    @Column(columnDefinition="varchar(20)  comment '共享文件id'")
-    public String commonFileId;
-    @Column(columnDefinition="bigint(20) comment '用户id'")
-    public Long userId;
-    @Column(columnDefinition="int(2) comment '用户对文件的权限码'")
-    public Integer filePermissionCode;
+* 
+* @TableName file_permission
+*/
+public class FilePermission implements Serializable {
+
+    /**
+    * 
+    */
+    @NotNull(message="[]不能为空")
+    @ApiModelProperty("")
+    private Long filepermissionid;
+    /**
+    * 共享文件id
+    */
+    @Size(max= 20,message="编码长度不能超过20")
+    @ApiModelProperty("共享文件id")
+    @Length(max= 20,message="编码长度不能超过20")
+    private String commonfileid;
+    /**
+    * 用户对文件的权限码
+    */
+    @ApiModelProperty("用户对文件的权限码")
+    private Integer filepermissioncode;
+    /**
+    * 用户id
+    */
+    @ApiModelProperty("用户id")
+    private Long userid;
+
+    /**
+    * 
+    */
+    private void setFilepermissionid(Long filepermissionid){
+    this.filepermissionid = filepermissionid;
+    }
+
+    /**
+    * 共享文件id
+    */
+    private void setCommonfileid(String commonfileid){
+    this.commonfileid = commonfileid;
+    }
+
+    /**
+    * 用户对文件的权限码
+    */
+    private void setFilepermissioncode(Integer filepermissioncode){
+    this.filepermissioncode = filepermissioncode;
+    }
+
+    /**
+    * 用户id
+    */
+    private void setUserid(Long userid){
+    this.userid = userid;
+    }
+
+
+    /**
+    * 
+    */
+    private Long getFilepermissionid(){
+    return this.filepermissionid;
+    }
+
+    /**
+    * 共享文件id
+    */
+    private String getCommonfileid(){
+    return this.commonfileid;
+    }
+
+    /**
+    * 用户对文件的权限码
+    */
+    private Integer getFilepermissioncode(){
+    return this.filepermissioncode;
+    }
+
+    /**
+    * 用户id
+    */
+    private Long getUserid(){
+    return this.userid;
+    }
 
 }

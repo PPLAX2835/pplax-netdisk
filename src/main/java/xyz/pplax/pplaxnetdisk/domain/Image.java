@@ -1,32 +1,99 @@
 package xyz.pplax.pplaxnetdisk.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
-import javax.persistence.*;
+import java.io.Serializable;
+
+import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.Length;
 
 /**
- * @author MAC
- * @version 1.0
- * @description: TODO
- * @date 2021/12/7 22:05
- */
-@Data
-@Table(name = "image")
-@Entity
-@TableName("image")
-public class Image {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @TableId(type = IdType.AUTO)
-    @Column(columnDefinition="bigint(20)")
-    private Long imageId;
-    @Column(columnDefinition = "varchar(20) comment '文件id'")
-    private String fileId;
-    @Column(columnDefinition="int(5) comment '图像的宽'")
-    private Integer imageWidth;
-    @Column(columnDefinition="int(5) comment '图像的高'")
-    private Integer imageHeight;
+* 
+* @TableName image
+*/
+public class Image implements Serializable {
+
+    /**
+    * 
+    */
+    @NotNull(message="[]不能为空")
+    @ApiModelProperty("")
+    private Long imageid;
+    /**
+    * 文件id
+    */
+    @Size(max= 20,message="编码长度不能超过20")
+    @ApiModelProperty("文件id")
+    @Length(max= 20,message="编码长度不能超过20")
+    private String fileid;
+    /**
+    * 图像的高
+    */
+    @ApiModelProperty("图像的高")
+    private Integer imageheight;
+    /**
+    * 图像的宽
+    */
+    @ApiModelProperty("图像的宽")
+    private Integer imagewidth;
+
+    /**
+    * 
+    */
+    private void setImageid(Long imageid){
+    this.imageid = imageid;
+    }
+
+    /**
+    * 文件id
+    */
+    private void setFileid(String fileid){
+    this.fileid = fileid;
+    }
+
+    /**
+    * 图像的高
+    */
+    private void setImageheight(Integer imageheight){
+    this.imageheight = imageheight;
+    }
+
+    /**
+    * 图像的宽
+    */
+    private void setImagewidth(Integer imagewidth){
+    this.imagewidth = imagewidth;
+    }
+
+
+    /**
+    * 
+    */
+    private Long getImageid(){
+    return this.imageid;
+    }
+
+    /**
+    * 文件id
+    */
+    private String getFileid(){
+    return this.fileid;
+    }
+
+    /**
+    * 图像的高
+    */
+    private Integer getImageheight(){
+    return this.imageheight;
+    }
+
+    /**
+    * 图像的宽
+    */
+    private Integer getImagewidth(){
+    return this.imagewidth;
+    }
+
 }

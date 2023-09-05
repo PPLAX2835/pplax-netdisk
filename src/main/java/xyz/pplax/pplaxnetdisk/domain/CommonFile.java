@@ -1,30 +1,59 @@
 package xyz.pplax.pplaxnetdisk.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 /**
- * @author MAC
- * @version 1.0
- * @description: TODO
- * @date 2022/1/12 14:41
- */
-@Data
-@Table(name = "commonfile")
-@Entity
-@TableName("commonfile")
-public class CommonFile {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @TableId(type = IdType.AUTO)
-    @Column(columnDefinition="varchar(20)")
-    public String commonFileId;
-    @Column(columnDefinition="bigint(20) comment '用户文件id'")
-    public String userFileId;
-//    @Column(columnDefinition="int(2) comment '文件权限'")
-//    public Integer filePermission;
+* 
+* @TableName common_file
+*/
+public class CommonFile implements Serializable {
+
+    /**
+    * 
+    */
+    @NotBlank(message="[]不能为空")
+    @Size(max= 20,message="编码长度不能超过20")
+    @ApiModelProperty("")
+    @Length(max= 20,message="编码长度不能超过20")
+    private String commonfileid;
+    /**
+    * 用户文件id
+    */
+    @ApiModelProperty("用户文件id")
+    private Long userfileid;
+
+    /**
+    * 
+    */
+    private void setCommonfileid(String commonfileid){
+    this.commonfileid = commonfileid;
+    }
+
+    /**
+    * 用户文件id
+    */
+    private void setUserfileid(Long userfileid){
+    this.userfileid = userfileid;
+    }
+
+
+    /**
+    * 
+    */
+    private String getCommonfileid(){
+    return this.commonfileid;
+    }
+
+    /**
+    * 用户文件id
+    */
+    private Long getUserfileid(){
+    return this.userfileid;
+    }
+
 }
