@@ -180,4 +180,13 @@ class PPLAXNetdiskApplicationTests {
         System.out.println(shareListVOS);
         System.out.println(i);
     }
+
+
+    @Autowired
+    UploadTaskDetailMapper uploadTaskDetailMapper;
+    @Test
+    void PPLAXUploadTaskDetailMapperTest() {
+        List<Integer> integers = uploadTaskDetailMapper.selectUploadedChunkNumList("1");
+        System.out.println(integers);
+    }
 }
