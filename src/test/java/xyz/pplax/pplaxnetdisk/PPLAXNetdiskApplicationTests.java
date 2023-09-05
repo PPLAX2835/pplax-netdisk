@@ -11,6 +11,7 @@ import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
 import xyz.pplax.pplaxnetdisk.mapper.*;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
+import xyz.pplax.pplaxnetdisk.vo.file.RecoveryFileListVo;
 
 import java.util.List;
 
@@ -149,4 +150,12 @@ class PPLAXNetdiskApplicationTests {
         System.out.println(noticeIPage);
     }
 
+    @Autowired
+    RecoveryFileMapper recoveryFileMapper;
+    @Test
+    void PPLAXRecoveryFileMapperTest() {
+
+        List<RecoveryFileListVo> recoveryFileListVos = recoveryFileMapper.selectRecoveryFileList("1");
+        System.out.println(recoveryFileListVos);
+    }
 }
