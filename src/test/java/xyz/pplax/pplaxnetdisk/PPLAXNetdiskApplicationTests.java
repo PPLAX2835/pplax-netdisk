@@ -12,6 +12,7 @@ import xyz.pplax.pplaxnetdisk.mapper.*;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
 import xyz.pplax.pplaxnetdisk.vo.file.RecoveryFileListVo;
+import xyz.pplax.pplaxnetdisk.vo.share.ShareFileListVO;
 
 import java.util.List;
 
@@ -157,5 +158,14 @@ class PPLAXNetdiskApplicationTests {
 
         List<RecoveryFileListVo> recoveryFileListVos = recoveryFileMapper.selectRecoveryFileList("1");
         System.out.println(recoveryFileListVos);
+    }
+
+    @Autowired
+    ShareFileMapper shareFileMapper;
+    @Test
+    void PPLAXShareFileMapperTest() {
+
+        List<ShareFileListVO> listVOS = shareFileMapper.selectShareFileList("lax", "/");
+        System.out.println(listVOS);
     }
 }
