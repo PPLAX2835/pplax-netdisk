@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import xyz.pplax.pplaxnetdisk.domain.*;
+import xyz.pplax.pplaxnetdisk.domain.user.Role;
+import xyz.pplax.pplaxnetdisk.domain.user.User;
 import xyz.pplax.pplaxnetdisk.dto.notice.NoticeListDTO;
 import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
 import xyz.pplax.pplaxnetdisk.mapper.*;
@@ -193,7 +195,7 @@ class PPLAXNetdiskApplicationTests {
     @Autowired
     UserFileMapper userFileMapper;
     @Test
-    void PPLAXUserFileMapperMapperTest() {
+    void PPLAXUserFileMapperTest() {
         Page<FileListVO> page = new Page<>(0, 10);
         List<UserFile> userFiles = userFileMapper.selectUserFileByLikeRightFilePath("/", "1");
         IPage<FileListVO> fileListVOIPage = userFileMapper.selectPageVo(page, new UserFile(), 1);
@@ -204,4 +206,30 @@ class PPLAXNetdiskApplicationTests {
         System.out.println(fileListVOIPage);
         System.out.println(aLong);
     }
+
+    @Autowired
+    UserMapper userMapper;
+    @Test
+    void PPLAXUserMapperTest() {
+//        User user = new User();
+//        user.setUserid("23412");
+//        user.setUsername("PPLAX");
+//        user.setSalt("pplax");
+//        user.setPassword("fadsadfs adfs adfsfadsadfs ");
+//        user.setTelephone("18830292772");
+//        user.setSex("1");
+//        user.setImageurl("/");
+//        user.setRegistertime("2023-04-08");
+//
+//        int i = userMapper.insertUser(user);
+//        List<Role> roles = userMapper.selectRoleListByUserId("23412");
+//        String s = userMapper.selectSaltByTelephone("18830292772");
+//        User user1 = userMapper.selectUserByTelephoneAndPassword("18830292772", "fadsadfs adfs adfsfadsadfs ");
+//
+//        System.out.println(i);
+//        System.out.println(roles);
+//        System.out.println(s);
+//        System.out.println(user1);
+    }
+
 }
