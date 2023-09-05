@@ -11,6 +11,7 @@ import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
 import xyz.pplax.pplaxnetdisk.mapper.*;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
+import xyz.pplax.pplaxnetdisk.vo.file.FileListVO;
 import xyz.pplax.pplaxnetdisk.vo.file.RecoveryFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.share.ShareFileListVO;
 import xyz.pplax.pplaxnetdisk.vo.share.ShareListVO;
@@ -181,12 +182,26 @@ class PPLAXNetdiskApplicationTests {
         System.out.println(i);
     }
 
-
     @Autowired
     UploadTaskDetailMapper uploadTaskDetailMapper;
     @Test
     void PPLAXUploadTaskDetailMapperTest() {
         List<Integer> integers = uploadTaskDetailMapper.selectUploadedChunkNumList("1");
         System.out.println(integers);
+    }
+
+    @Autowired
+    UserFileMapper userFileMapper;
+    @Test
+    void PPLAXUserFileMapperMapperTest() {
+        Page<FileListVO> page = new Page<>(0, 10);
+        List<UserFile> userFiles = userFileMapper.selectUserFileByLikeRightFilePath("/", "1");
+        IPage<FileListVO> fileListVOIPage = userFileMapper.selectPageVo(page, new UserFile(), 1);
+        Long aLong = userFileMapper.selectStorageSizeByUserId("1");
+
+
+        System.out.println(userFiles);
+        System.out.println(fileListVOIPage);
+        System.out.println(aLong);
     }
 }
