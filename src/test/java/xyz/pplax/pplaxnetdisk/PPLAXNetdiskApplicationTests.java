@@ -3,8 +3,11 @@ package xyz.pplax.pplaxnetdisk;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import xyz.pplax.pplaxnetdisk.domain.CommonFile;
+import xyz.pplax.pplaxnetdisk.domain.FilePermission;
 import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
 import xyz.pplax.pplaxnetdisk.mapper.CommonFileMapper;
+import xyz.pplax.pplaxnetdisk.mapper.FilePermissionMapper;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
 
@@ -30,8 +33,18 @@ class PPLAXNetdiskApplicationTests {
     void PPLAXCommonFileMapperTest() {
         List<CommonFileUser> commonFileUsers = commonFileMapper.selectCommonFileUser(1l);
         List<CommonFileListVo> commonFileListVos = commonFileMapper.selectCommonFileByUser(1l, 1l);
+        CommonFile commonFile = commonFileMapper.selectById(1);
         System.out.println(commonFileUsers.toString());
         System.out.println(commonFileListVos.toString());
+        System.out.println(commonFile);
+    }
+
+    @Autowired
+    FilePermissionMapper filePermissionMapper;
+    @Test
+    void PPLAXFilePermissionMapperTest() {
+        FilePermission filePermission = filePermissionMapper.selectById(1);
+        System.out.println(filePermission);
     }
 
 }
