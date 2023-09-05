@@ -7,7 +7,7 @@
 <mapper namespace="xyz.pplax.pplaxnetdisk.mapper.FileTypeMapper">
 
     <select id="selectExtendNameByFileType" parameterType="java.lang.String" resultType="java.lang.String">
-        select fileExtendName from fileclassification
+        select fileExtendName from file_classification
         <where>
             <choose>
                 <when test="fileTypeId != 5">
