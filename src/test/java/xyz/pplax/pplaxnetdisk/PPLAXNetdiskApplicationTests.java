@@ -9,12 +9,10 @@ import xyz.pplax.pplaxnetdisk.domain.*;
 import xyz.pplax.pplaxnetdisk.domain.user.Role;
 import xyz.pplax.pplaxnetdisk.domain.user.User;
 import xyz.pplax.pplaxnetdisk.dto.notice.NoticeListDTO;
+import xyz.pplax.pplaxnetdisk.dto.sharefile.ShareListDTO;
 import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
 import xyz.pplax.pplaxnetdisk.mapper.*;
-import xyz.pplax.pplaxnetdisk.service.CommonFileService;
-import xyz.pplax.pplaxnetdisk.service.NoticeService;
-import xyz.pplax.pplaxnetdisk.service.OperationLogService;
-import xyz.pplax.pplaxnetdisk.service.ShareFileService;
+import xyz.pplax.pplaxnetdisk.service.*;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
 import xyz.pplax.pplaxnetdisk.vo.file.FileListVO;
@@ -280,5 +278,20 @@ class PPLAXNetdiskApplicationTests {
     void PPLAXShareFileServiceTest() {
         List<ShareFileListVO> listVOS = shareFileService.selectShareFileList("1", "/");
         System.out.println(listVOS);
+    }
+
+    @Autowired
+    ShareService shareService;
+    @Test
+    void PPLAXShareServiceTest() {
+        ShareListDTO shareListDTO = new ShareListDTO();
+        shareListDTO.setShareBatchNum("1");
+        shareListDTO.setCurrentPage(1L);
+        shareListDTO.setPageCount(10L);
+        shareListDTO.setShareFilePath("/");
+        List<ShareListVO> shareListVOS = shareService.selectShareList(shareListDTO, "1");
+        int i = shareService.selectShareListTotalCount(shareListDTO, "1");
+        System.out.println(shareListVOS);
+        System.out.println(i);
     }
 }
