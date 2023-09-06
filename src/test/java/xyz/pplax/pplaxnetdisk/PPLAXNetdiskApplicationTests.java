@@ -38,8 +38,8 @@ class PPLAXNetdiskApplicationTests {
     CommonFileMapper commonFileMapper;
     @Test
     void PPLAXCommonFileMapperTest() {
-        List<CommonFileUser> commonFileUsers = commonFileMapper.selectCommonFileUser(1l);
-        List<CommonFileListVo> commonFileListVos = commonFileMapper.selectCommonFileByUser(1l, 1l);
+        List<CommonFileUser> commonFileUsers = commonFileMapper.selectCommonFileUser("1");
+        List<CommonFileListVo> commonFileListVos = commonFileMapper.selectCommonFileByUser("1", "1");
         CommonFile commonFile = commonFileMapper.selectById(1);
         System.out.println(commonFileUsers.toString());
         System.out.println(commonFileListVos.toString());
