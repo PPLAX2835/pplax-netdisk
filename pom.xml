@@ -54,7 +54,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.example.pplaxnetdisk.PPLAXNetdiskApplication</mainClass>
+                    <mainClass>xyz.pplax.pplaxnetdisk.PPLAXNetdiskApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>

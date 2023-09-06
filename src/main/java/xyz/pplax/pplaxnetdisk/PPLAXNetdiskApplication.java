@@ -1,4 +1,4 @@
-package com.example.pplaxnetdisk;
+package xyz.pplax.pplaxnetdisk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
