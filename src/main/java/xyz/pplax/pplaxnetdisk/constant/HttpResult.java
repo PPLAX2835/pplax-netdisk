@@ -1,4 +1,4 @@
-package xyz.pplax.pplaxnetdisk.response;
+package xyz.pplax.pplaxnetdisk.constant;
 
 import java.io.Serializable;
 
