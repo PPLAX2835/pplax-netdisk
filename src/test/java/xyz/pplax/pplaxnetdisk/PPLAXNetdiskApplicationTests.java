@@ -13,6 +13,7 @@ import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
 import xyz.pplax.pplaxnetdisk.mapper.*;
 import xyz.pplax.pplaxnetdisk.service.CommonFileService;
 import xyz.pplax.pplaxnetdisk.service.NoticeService;
+import xyz.pplax.pplaxnetdisk.service.OperationLogService;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
 import xyz.pplax.pplaxnetdisk.vo.file.FileListVO;
@@ -260,4 +261,16 @@ class PPLAXNetdiskApplicationTests {
         IPage<Notice> noticeIPage = noticeService.selectUserPage(noticeListDTO);
         System.out.println(noticeIPage);
     }
+
+
+    @Autowired
+    OperationLogService operationLogService;
+    @Test
+    void PPLAXOperationLogServiceTest() {
+        IPage<OperationLog> operationLogIPage = operationLogService.selectOperationLogPage(1, 10);
+        List<OperationLog> operationLogs = operationLogService.selectOperationLog();
+        System.out.println(operationLogIPage);
+        System.out.println(operationLogs);
+    }
+
 }

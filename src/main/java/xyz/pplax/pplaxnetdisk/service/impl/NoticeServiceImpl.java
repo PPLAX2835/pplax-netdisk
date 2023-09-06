@@ -3,6 +3,7 @@ package xyz.pplax.pplaxnetdisk.service.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import xyz.pplax.pplaxnetdisk.service.NoticeService;
 import xyz.pplax.pplaxnetdisk.domain.Notice;
 import xyz.pplax.pplaxnetdisk.dto.notice.NoticeListDTO;
@@ -14,7 +15,7 @@ import javax.annotation.Resource;
 
 @Service
 public class NoticeServiceImpl extends ServiceImpl<NoticeMapper, Notice> implements NoticeService {
-    @Resource
+    @Autowired
     NoticeMapper noticeMapper;
 
 
