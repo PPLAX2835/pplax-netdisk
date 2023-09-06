@@ -12,6 +12,7 @@ import xyz.pplax.pplaxnetdisk.dto.notice.NoticeListDTO;
 import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
 import xyz.pplax.pplaxnetdisk.mapper.*;
 import xyz.pplax.pplaxnetdisk.service.CommonFileService;
+import xyz.pplax.pplaxnetdisk.service.NoticeService;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
 import xyz.pplax.pplaxnetdisk.vo.file.FileListVO;
@@ -242,5 +243,21 @@ class PPLAXNetdiskApplicationTests {
 
         System.out.println(commonFileUsers);
         System.out.println(commonFileListVos);
+    }
+
+    @Autowired
+    NoticeService noticeService;
+    @Test
+    void PPLAXNoticeServiceTest() {
+        NoticeListDTO noticeListDTO = new NoticeListDTO();
+        noticeListDTO.setBeginTime("2002-03-07");
+        noticeListDTO.setPage(1);
+        noticeListDTO.setEndTime("2030-07-08");
+        noticeListDTO.setPlatform(1);
+        noticeListDTO.setPublisher(1l);
+        noticeListDTO.setTitle("PPLAX");
+        noticeListDTO.setPageSize(10);
+        IPage<Notice> noticeIPage = noticeService.selectUserPage(noticeListDTO);
+        System.out.println(noticeIPage);
     }
 }
