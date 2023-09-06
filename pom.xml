@@ -175,6 +175,14 @@
         </dependency>
 
 
+<!--        &lt;!&ndash; MongoDB &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.mongodb</groupId>-->
+<!--            <artifactId>mongo-java-driver</artifactId>-->
+<!--            <version>3.8.0</version>-->
+<!--        </dependency>-->
+
+
 
 
 
