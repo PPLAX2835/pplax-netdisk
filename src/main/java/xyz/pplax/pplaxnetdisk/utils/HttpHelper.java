@@ -36,7 +36,7 @@ import org.apache.http.util.CharsetUtils;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xyz.pplax.pplaxnetdisk.response.HttpResult;
+import xyz.pplax.pplaxnetdisk.constant.HttpResult;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
