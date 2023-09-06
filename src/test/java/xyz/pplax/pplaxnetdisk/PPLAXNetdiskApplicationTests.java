@@ -11,6 +11,7 @@ import xyz.pplax.pplaxnetdisk.domain.user.User;
 import xyz.pplax.pplaxnetdisk.dto.notice.NoticeListDTO;
 import xyz.pplax.pplaxnetdisk.io.PPLAXFile;
 import xyz.pplax.pplaxnetdisk.mapper.*;
+import xyz.pplax.pplaxnetdisk.service.CommonFileService;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
 import xyz.pplax.pplaxnetdisk.vo.file.FileListVO;
@@ -38,7 +39,7 @@ class PPLAXNetdiskApplicationTests {
     CommonFileMapper commonFileMapper;
     @Test
     void PPLAXCommonFileMapperTest() {
-        List<CommonFileUser> commonFileUsers = commonFileMapper.selectCommonFileUser("1");
+        List<CommonFileUser> commonFileUsers = commonFileMapper.selectCommonFileUser(1L);
         List<CommonFileListVo> commonFileListVos = commonFileMapper.selectCommonFileByUser("1", "1");
         CommonFile commonFile = commonFileMapper.selectById(1);
         System.out.println(commonFileUsers.toString());
@@ -232,4 +233,14 @@ class PPLAXNetdiskApplicationTests {
 //        System.out.println(user1);
     }
 
+    @Autowired
+    CommonFileService commonFileService;
+    @Test
+    void PPLAXCommonFileServiceTest() {
+        List<CommonFileListVo> commonFileListVos = commonFileService.selectCommonFileByUser("1", "1");
+        List<CommonFileUser> commonFileUsers = commonFileService.selectCommonFileUser("1");
+
+        System.out.println(commonFileUsers);
+        System.out.println(commonFileListVos);
+    }
 }
