@@ -1,4 +1,4 @@
-package xyz.pplax.pplaxnetdisk.Entity;
+package xyz.pplax.pplaxnetdisk.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
