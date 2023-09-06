@@ -14,6 +14,7 @@ import xyz.pplax.pplaxnetdisk.mapper.*;
 import xyz.pplax.pplaxnetdisk.service.CommonFileService;
 import xyz.pplax.pplaxnetdisk.service.NoticeService;
 import xyz.pplax.pplaxnetdisk.service.OperationLogService;
+import xyz.pplax.pplaxnetdisk.service.ShareFileService;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileListVo;
 import xyz.pplax.pplaxnetdisk.vo.commonfile.CommonFileUser;
 import xyz.pplax.pplaxnetdisk.vo.file.FileListVO;
@@ -273,4 +274,11 @@ class PPLAXNetdiskApplicationTests {
         System.out.println(operationLogs);
     }
 
+    @Autowired
+    ShareFileService shareFileService;
+    @Test
+    void PPLAXShareFileServiceTest() {
+        List<ShareFileListVO> listVOS = shareFileService.selectShareFileList("1", "/");
+        System.out.println(listVOS);
+    }
 }
