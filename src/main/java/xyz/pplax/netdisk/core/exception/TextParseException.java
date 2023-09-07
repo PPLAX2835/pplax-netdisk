@@ -5,7 +5,7 @@ package xyz.pplax.netdisk.core.exception;
  *
  * @author zhaojun
  */
-public class TextParseException extends ZFileRuntimeException {
+public class TextParseException extends PPLAXRuntimeException {
 
     public TextParseException(String message) {
         super(message);

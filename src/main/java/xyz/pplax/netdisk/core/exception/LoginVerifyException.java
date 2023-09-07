@@ -5,7 +5,7 @@ package xyz.pplax.netdisk.core.exception;
  *
  * @author zhaojun
  */
-public class LoginVerifyException extends ZFileRuntimeException {
+public class LoginVerifyException extends PPLAXRuntimeException {
 
 	public LoginVerifyException(String message) {
 		super(message);

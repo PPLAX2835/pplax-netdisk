@@ -5,7 +5,7 @@ package xyz.pplax.netdisk.core.exception;
  *
  * @author zhaojun
  */
-public class PreviewException extends ZFileRuntimeException {
+public class PreviewException extends PPLAXRuntimeException {
 
     public PreviewException(String message) {
         super(message);

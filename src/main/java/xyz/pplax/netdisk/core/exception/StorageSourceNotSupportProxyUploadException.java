@@ -5,7 +5,7 @@ package xyz.pplax.netdisk.core.exception;
  *
  * @author zhaojun
  */
-public class StorageSourceNotSupportProxyUploadException extends ZFileRuntimeException {
+public class StorageSourceNotSupportProxyUploadException extends PPLAXRuntimeException {
 
 	public StorageSourceNotSupportProxyUploadException(String message) {
 		super(message);

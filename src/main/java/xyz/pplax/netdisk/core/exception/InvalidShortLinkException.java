@@ -5,7 +5,7 @@ package xyz.pplax.netdisk.core.exception;
  *
  * @author zhaojun
  */
-public class InvalidShortLinkException extends ZFileRuntimeException {
+public class InvalidShortLinkException extends PPLAXRuntimeException {
 
 	public InvalidShortLinkException(String message) {
 		super(message);

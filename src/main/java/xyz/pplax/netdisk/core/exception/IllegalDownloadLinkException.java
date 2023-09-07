@@ -5,7 +5,7 @@ package xyz.pplax.netdisk.core.exception;
  *
  * @author zhaojun
  */
-public class IllegalDownloadLinkException extends ZFileRuntimeException {
+public class IllegalDownloadLinkException extends PPLAXRuntimeException {
 
 	public IllegalDownloadLinkException(String message) {
 		super(message);

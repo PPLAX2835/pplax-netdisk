@@ -5,7 +5,7 @@ package xyz.pplax.netdisk.core.exception;
  *
  * @author zhaojun
  */
-public class InstallSystemException extends ZFileRuntimeException {
+public class InstallSystemException extends PPLAXRuntimeException {
 
     public InstallSystemException(String message) {
         super(message);
