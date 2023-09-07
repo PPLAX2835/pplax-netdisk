@@ -19,7 +19,7 @@ public class SystemConfigDTO {
     @ApiModelProperty(value = "ID", required = true, example = "1")
     private Integer id;
 
-    @ApiModelProperty(value = "站点名称", example = "ZFile Site Name")
+    @ApiModelProperty(value = "站点名称", example = "PPLAX Site Name")
     private String siteName;
 
     @ApiModelProperty(value = "用户名", example = "admin")
@@ -34,7 +34,7 @@ public class SystemConfigDTO {
     @JsonIgnore
     private String password;
 
-    @ApiModelProperty(value = "站点域名", example = "https://zfile.vip")
+    @ApiModelProperty(value = "站点域名", example = "https://pplax.vip")
     private String domain;
 
     @ApiModelProperty(value = "自定义 JS")
@@ -49,7 +49,7 @@ public class SystemConfigDTO {
     @ApiModelProperty(value = "是否显示文档区", example = "true")
     private Boolean showDocument;
 
-    @ApiModelProperty(value = "网站公告", example = "ZFile 网站公告")
+    @ApiModelProperty(value = "网站公告", example = "PPLAX 网站公告")
     private String announcement;
 
     @ApiModelProperty(value = "是否显示网站公告", example = "true")
@@ -121,7 +121,7 @@ public class SystemConfigDTO {
     @ApiModelProperty(value = "最大同时上传文件数", example = "5")
     private Integer maxFileUploads;
 
-    @ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.zfile.vip")
+    @ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.pplax.vip")
     private String onlyOfficeUrl;
 
     @ApiModelProperty(value = "是否允许路径直链可直接访问", example = "true", required = true)
@@ -145,7 +145,7 @@ public class SystemConfigDTO {
     @ApiModelProperty(value = "站点 Home Logo", example = "true")
     private String siteHomeLogo;
 
-    @ApiModelProperty(value = "站点 Logo 点击后链接", example = "https://www.zfile.vip")
+    @ApiModelProperty(value = "站点 Logo 点击后链接", example = "https://www.pplax.vip")
     private String siteHomeLogoLink;
 
     @ApiModelProperty(value = "站点 Logo 链接打开方式", example = "_blank")

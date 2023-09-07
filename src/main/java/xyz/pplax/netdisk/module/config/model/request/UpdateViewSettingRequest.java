@@ -39,7 +39,7 @@ public class UpdateViewSettingRequest {
 	@ApiModelProperty(value = "是否显示网站公告", example = "true", required = true)
 	private Boolean showAnnouncement;
 
-	@ApiModelProperty(value = "网站公告", example = "ZFile 网站公告")
+	@ApiModelProperty(value = "网站公告", example = "PPLAX 网站公告")
 	private String announcement;
 
 	@ApiModelProperty(value = "自定义 CSS")
@@ -51,7 +51,7 @@ public class UpdateViewSettingRequest {
 	@ApiModelProperty(value = "默认文件点击习惯", example = "click")
 	private FileClickModeEnum fileClickMode;
 
-	@ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.zfile.vip")
+	@ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.pplax.vip")
 	private String onlyOfficeUrl;
 
 	@ApiModelProperty(value = "默认最大显示文件数", example = "1000")

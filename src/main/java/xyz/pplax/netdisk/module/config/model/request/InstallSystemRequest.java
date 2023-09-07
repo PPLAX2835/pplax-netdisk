@@ -11,7 +11,7 @@ import lombok.Data;
 @ApiModel(description = "系统初始化请求类")
 public class InstallSystemRequest {
 
-    @ApiModelProperty(value = "站点名称", example = "ZFile Site Name")
+    @ApiModelProperty(value = "站点名称", example = "PPLAX Site Name")
     private String siteName;
 
     @ApiModelProperty(value = "用户名", example = "admin")
@@ -20,7 +20,7 @@ public class InstallSystemRequest {
     @ApiModelProperty(value = "密码", example = "123456")
     private String password;
 
-    @ApiModelProperty(value = "站点域名", example = "https://zfile.vip")
+    @ApiModelProperty(value = "站点域名", example = "https://pplax.vip")
     private String domain;
 
 }

@@ -13,11 +13,11 @@ import javax.validation.constraints.NotBlank;
 @ApiModel(description = "站点设置请求参数类")
 public class UpdateSiteSettingRequest {
 
-	@ApiModelProperty(value = "站点名称", required = true, example = "ZFile Site Name")
+	@ApiModelProperty(value = "站点名称", required = true, example = "PPLAX Site Name")
 	@NotBlank(message = "站点名称不能为空")
 	private String siteName;
 
-	@ApiModelProperty(value = "站点域名", required = true, example = "https://zfile.vip")
+	@ApiModelProperty(value = "站点域名", required = true, example = "https://pplax.vip")
 	@NotBlank(message = "站点域名不能为空")
 	private String domain;
 
@@ -39,7 +39,7 @@ public class UpdateSiteSettingRequest {
 	@ApiModelProperty(value = "站点 Home Logo", example = "true")
 	private String siteHomeLogo;
 
-	@ApiModelProperty(value = "站点 Logo 点击后链接", example = "https://www.zfile.vip")
+	@ApiModelProperty(value = "站点 Logo 点击后链接", example = "https://www.pplax.vip")
 	private String siteHomeLogoLink;
 
 	@ApiModelProperty(value = "站点 Logo 链接打开方式", example = "_blank")

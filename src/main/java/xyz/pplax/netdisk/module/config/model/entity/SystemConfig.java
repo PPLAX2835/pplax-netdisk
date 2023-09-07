@@ -33,7 +33,7 @@ public class SystemConfig implements Serializable {
 
 
     @TableField(value = "`value`")
-    @ApiModelProperty(value = "系统设置值", example = "ZFile 演示站")
+    @ApiModelProperty(value = "系统设置值", example = "PPLAX 演示站")
     private String value;
 
 

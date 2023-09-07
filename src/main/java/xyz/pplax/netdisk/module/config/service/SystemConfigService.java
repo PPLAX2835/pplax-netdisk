@@ -60,7 +60,7 @@ public class SystemConfigService {
     private SystemConfigService systemConfigService;
     
     @Resource
-    private PPLAXFileProperties zFileProperties;
+    private PPLAXFileProperties pplaxFileProperties;
     
     @Resource
     private CacheManager cacheManager;
@@ -171,7 +171,7 @@ public class SystemConfigService {
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public void resetAdminLoginInfo() {
-        if (!zFileProperties.isDebug()) {
+        if (!pplaxFileProperties.isDebug()) {
             log.warn("当前为非调试模式, 无法重置管理员登录信息");
             throw new ServiceException(CodeMsg.BAD_REQUEST);
         }
