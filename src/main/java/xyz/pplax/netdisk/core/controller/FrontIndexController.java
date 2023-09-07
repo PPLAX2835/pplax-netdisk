@@ -43,7 +43,7 @@
 //		SystemConfigDTO systemConfig = systemConfigService.getSystemConfig();
 //		String siteName = systemConfig.getSiteName();
 //		if (StrUtil.isNotBlank(siteName)) {
-//			content = content.replace("<title>ZFile</title>", "<title>" + siteName + "</title>");
+//			content = content.replace("<title>PPLAX</title>", "<title>" + siteName + "</title>");
 //		}
 //
 //		String faviconUrl = systemConfig.getFaviconUrl();
