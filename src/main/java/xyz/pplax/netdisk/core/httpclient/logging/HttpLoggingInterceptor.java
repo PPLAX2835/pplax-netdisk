@@ -51,6 +51,7 @@ import static okhttp3.internal.platform.Platform.INFO;
  * this class should not be considered stable and may change slightly between releases. If you need
  * a stable logging format, use your own interceptor.
  * <br>
+ * 实现OkHttp拦截器
  * @author zhaojun
  */
 @Slf4j
@@ -58,6 +59,12 @@ public final class HttpLoggingInterceptor implements Interceptor {
 
 	private static final Charset UTF8 = StandardCharsets.UTF_8;
 
+	/**
+	 * 枚举类型Level：
+	 *
+	 * 枚举类型Level定义了不同的日志级别，包括NONE、BASIC、HEADERS和BODY。
+	 * 这些级别决定了日志输出的详细程度。
+	 */
 	public enum Level {
 		/** No logs. */
 		NONE,
@@ -114,6 +121,12 @@ public final class HttpLoggingInterceptor implements Interceptor {
 		BODY
 	}
 
+	/**
+	 * 接口Logger：
+	 *
+	 * 定义了一个Logger接口，用于日志输出。
+	 * 提供了默认的Logger.DEFAULT实例，以及额外的DEBUG和TRACE实例。
+	 */
 	public interface Logger {
 		void log(String message);
 
@@ -157,6 +170,17 @@ public final class HttpLoggingInterceptor implements Interceptor {
 		return level;
 	}
 
+	/**
+	 * 实现了Interceptor接口的intercept()方法，用于拦截HTTP请求和响应。
+	 * 根据日志级别确定是否记录请求和响应的信息，以及是否记录请求和响应的头部信息和主体。
+	 * 在请求发起前，记录请求的起始信息，包括请求方法、URL、协议等。
+	 * 在请求和响应的各个阶段记录相关信息，包括头部、主体、耗时等。
+	 * 根据是否有主体内容和主体内容的编码方式，输出不同的日志信息。
+	 * 最终返回响应对象。
+	 * @param chain
+	 * @return
+	 * @throws IOException
+	 */
 	@Override public Response intercept(Chain chain) throws IOException {
 		Level level = this.level;
 
@@ -302,6 +326,11 @@ public final class HttpLoggingInterceptor implements Interceptor {
 		return response;
 	}
 
+	/**
+	 * 用于记录头部信息，可以根据配置决定是否隐藏某些敏感头部信息。
+	 * @param headers
+	 * @param i
+	 */
 	private void logHeader(Headers headers, int i) {
 		String value = headersToRedact.contains(headers.name(i)) ? "██" : headers.value(i);
 		logger.log(headers.name(i) + ": " + value);
@@ -310,6 +339,8 @@ public final class HttpLoggingInterceptor implements Interceptor {
 	/**
 	 * Returns true if the body in question probably contains human readable text. Uses a small sample
 	 * of code points to detect unicode control characters commonly used in binary file signatures.
+	 * 用于判断主体内容是否为纯文本。
+	 * 通过检查主体内容的前64个字节，检查是否包含非可见字符。
 	 */
 	static boolean isPlaintext(Buffer buffer) {
 		try {
@@ -331,6 +362,11 @@ public final class HttpLoggingInterceptor implements Interceptor {
 		}
 	}
 
+	/**
+	 * 用于检查主体内容是否包含未知的编码方式，例如不是"identity"或"gzip"。
+	 * @param headers
+	 * @return
+	 */
 	private static boolean bodyHasUnknownEncoding(Headers headers) {
 		String contentEncoding = headers.get("Content-Encoding");
 		return contentEncoding != null
