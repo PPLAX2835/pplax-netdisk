@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import xyz.pplax.netdisk.module.config.mapper.SystemConfigMapper;
 import xyz.pplax.netdisk.module.config.model.entity.SystemConfig;
+import xyz.pplax.netdisk.module.filter.mapper.FilterConfigMapper;
+import xyz.pplax.netdisk.module.filter.model.entity.FilterConfig;
 import xyz.pplax.netdisk.module.link.mapper.ShortLinkMapper;
 import xyz.pplax.netdisk.module.link.model.entity.ShortLink;
 import xyz.pplax.netdisk.module.readme.mapper.ReadmeConfigMapper;
@@ -80,4 +82,15 @@ class PPLAXNetdiskApplicationTests {
         System.out.println(byStorageId);
 
     }
+
+
+    @Autowired
+    FilterConfigMapper filterConfigMapper;
+    @Test
+    public void FilterConfigMapperTest() {
+        List<FilterConfig> byStorageId = filterConfigMapper.findByStorageId(1);
+        System.out.println(byStorageId);
+
+    }
+
 }
