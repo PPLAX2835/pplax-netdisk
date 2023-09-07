@@ -7,6 +7,8 @@ import xyz.pplax.netdisk.module.config.mapper.SystemConfigMapper;
 import xyz.pplax.netdisk.module.config.model.entity.SystemConfig;
 import xyz.pplax.netdisk.module.link.mapper.ShortLinkMapper;
 import xyz.pplax.netdisk.module.link.model.entity.ShortLink;
+import xyz.pplax.netdisk.module.readme.mapper.ReadmeConfigMapper;
+import xyz.pplax.netdisk.module.readme.model.entity.ReadmeConfig;
 import xyz.pplax.netdisk.module.storage.mapper.StorageSourceConfigMapper;
 import xyz.pplax.netdisk.module.storage.mapper.StorageSourceMapper;
 import xyz.pplax.netdisk.module.storage.model.entity.StorageSourceConfig;
@@ -65,6 +67,17 @@ class PPLAXNetdiskApplicationTests {
     public void ShortLinkMapperTest() {
         ShortLink byKey = shortLinkMapper.findByKey("1");
         System.out.println(byKey);
+
+    }
+
+
+
+    @Autowired
+    ReadmeConfigMapper readmeConfigMapper;
+    @Test
+    public void ReadmeConfigMapperTest() {
+        List<ReadmeConfig> byStorageId = readmeConfigMapper.findByStorageId(1);
+        System.out.println(byStorageId);
 
     }
 }
