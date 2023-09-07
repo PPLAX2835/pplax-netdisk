@@ -14,13 +14,13 @@ import lombok.ToString;
 @ToString
 public class GoogleDriveParam extends ProxyTransferParam {
 
-	@StorageParamItem(name = "clientId", defaultValue = "${zfile.gd.clientId}", order = 1, description = "<font color=\"red\">默认 API 仅用作示例，因审核原因，目前不可用，请自行申请 API</font>", link = "https://docs.zfile.vip/advanced#google-drive-api", linkName = "自定义 API 文档")
+	@StorageParamItem(name = "clientId", defaultValue = "${pplax.gd.clientId}", order = 1, description = "<font color=\"red\">默认 API 仅用作示例，因审核原因，目前不可用，请自行申请 API</font>", link = "https://docs.zfile.vip/advanced#google-drive-api", linkName = "自定义 API 文档")
 	private String clientId;
 
-	@StorageParamItem(name = "SecretKey", defaultValue = "${zfile.gd.clientSecret}", order = 2)
+	@StorageParamItem(name = "SecretKey", defaultValue = "${pplax.gd.clientSecret}", order = 2)
 	private String clientSecret;
 
-	@StorageParamItem(name = "回调地址", description = "这里要修改为自己的域名", defaultValue = "${zfile.gd.redirectUri}", order = 3)
+	@StorageParamItem(name = "回调地址", description = "这里要修改为自己的域名", defaultValue = "${pplax.gd.redirectUri}", order = 3)
 	private String redirectUri;
 
 	@Setter

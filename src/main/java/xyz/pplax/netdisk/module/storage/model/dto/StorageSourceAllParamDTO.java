@@ -28,10 +28,10 @@ public class StorageSourceAllParamDTO {
     @ApiModelProperty(value = "secretKey", example = "QJIO19ASJIKL10ZL")
     private String secretKey;
 
-    @ApiModelProperty(value = "bucket 名称", example = "zfile-test")
+    @ApiModelProperty(value = "bucket 名称", example = "pplax-test")
     private String bucketName;
 
-    @ApiModelProperty(value = "原 bucket 名称", example = "zfile-test")
+    @ApiModelProperty(value = "原 bucket 名称", example = "pplax-test")
     private String originBucketName;
 
     @ApiModelProperty(value = "域名或 IP", example = "127.0.0.1")
@@ -58,7 +58,7 @@ public class StorageSourceAllParamDTO {
     @ApiModelProperty(value = "密码", example = "123456")
     private String password;
 
-    @ApiModelProperty(value = "域名", example = "http://zfile-test.oss-cn-beijing.aliyuncs.com")
+    @ApiModelProperty(value = "域名", example = "http://pplax-test.oss-cn-beijing.aliyuncs.com")
     private String domain;
 
     @ApiModelProperty(value = "基路径", example = "/root/")
@@ -82,7 +82,7 @@ public class StorageSourceAllParamDTO {
     @ApiModelProperty(value = "站点类型", example = "sites")
     private String siteType;
 
-    @ApiModelProperty(value = "下载反代域名", example = "http://zfile-oroxy.zfile.vip")
+    @ApiModelProperty(value = "下载反代域名", example = "http://pplax-oroxy.pplax.vip")
     private String proxyDomain;
 
     @ApiModelProperty(value = "下载链接类型", example = "basic")
@@ -94,7 +94,7 @@ public class StorageSourceAllParamDTO {
     @ApiModelProperty(value = "clientSecret", example = "l:zI-_yrW75lV8M61K@z.I2K@B/On6Q1a")
     private String clientSecret;
     
-    @ApiModelProperty(value = "回调地址", example = "https://zfile.jun6.net/onedrive/callback")
+    @ApiModelProperty(value = "回调地址", example = "https://pplax.jun6.net/onedrive/callback")
     private String redirectUri;
 
     @ApiModelProperty(value = "区域", example = "cn-beijing")
