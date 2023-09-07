@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import xyz.pplax.netdisk.module.config.mapper.SystemConfigMapper;
 import xyz.pplax.netdisk.module.config.model.entity.SystemConfig;
+import xyz.pplax.netdisk.module.link.mapper.ShortLinkMapper;
+import xyz.pplax.netdisk.module.link.model.entity.ShortLink;
 import xyz.pplax.netdisk.module.storage.mapper.StorageSourceConfigMapper;
 import xyz.pplax.netdisk.module.storage.mapper.StorageSourceMapper;
 import xyz.pplax.netdisk.module.storage.model.entity.StorageSourceConfig;
@@ -57,4 +59,12 @@ class PPLAXNetdiskApplicationTests {
     }
 
 
+    @Autowired
+    ShortLinkMapper shortLinkMapper;
+    @Test
+    public void ShortLinkMapperTest() {
+        ShortLink byKey = shortLinkMapper.findByKey("1");
+        System.out.println(byKey);
+
+    }
 }
