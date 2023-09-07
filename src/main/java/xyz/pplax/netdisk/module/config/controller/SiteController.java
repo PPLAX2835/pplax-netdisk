@@ -32,7 +32,7 @@
 //public class SiteController {
 //
 //	@Resource
-//	private PPLAXFileProperties zFileProperties;
+//	private PPLAXFileProperties pplaxFileProperties;
 //
 //	@Resource
 //	private StorageSourceService storageSourceService;
@@ -49,7 +49,7 @@
 //		SiteConfigResult siteConfigResult = new SiteConfigResult();
 //		BeanUtils.copyProperties(systemConfig, siteConfigResult);
 //
-//		siteConfigResult.setDebugMode(zFileProperties.isDebug());
+//		siteConfigResult.setDebugMode(pplaxFileProperties.isDebug());
 //		return AjaxJson.getSuccessData(siteConfigResult);
 //	}
 //
@@ -65,7 +65,7 @@
 //
 //	@ResponseBody
 //	@ApiOperationSupport(order = 3)
-//	@ApiOperation(value = "重置管理员密码", notes = "开启 debug 模式时，访问此接口会强制将管理员账户密码修改为 admin 123456, 并修改登录验证方式为图片验证码, 详见：https://docs.zfile.vip/#/question?id=reset-pwd")
+//	@ApiOperation(value = "重置管理员密码", notes = "开启 debug 模式时，访问此接口会强制将管理员账户密码修改为 admin 123456, 并修改登录验证方式为图片验证码, 详见：https://docs.pplax.vip/#/question?id=reset-pwd")
 //	@GetMapping("/reset-password")
 //	public AjaxJson<?> resetPwd() {
 //		systemConfigService.resetAdminLoginInfo();

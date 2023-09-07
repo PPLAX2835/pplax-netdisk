@@ -43,7 +43,7 @@ public class LinkRateLimiterAspect {
 	 *
 	 * @return  方法运行结果
 	 */
-	@Around(value = "@annotation(im.zhaojun.zfile.module.storage.annotation.LinkRateLimiter)")
+	@Around(value = "@annotation(xyz.pplax.netdisk.module.storage.annotation.LinkRateLimiter)")
 	public Object around(ProceedingJoinPoint point) throws Throwable {
 		SystemConfigDTO systemConfig = systemConfigService.getSystemConfig();
 		Integer linkLimitSecond = systemConfig.getLinkLimitSecond();

@@ -51,7 +51,7 @@ public class RefererCheckAspect {
 	 *
 	 * @return  方法运行结果
 	 */
-	@Around(value = "@annotation(im.zhaojun.zfile.module.storage.annotation.RefererCheck)")
+	@Around(value = "@annotation(xyz.pplax.netdisk.module.storage.annotation.RefererCheck)")
 	public Object around(ProceedingJoinPoint point) throws Throwable {
 		// 获取配置的 referer 类型
 		SystemConfigDTO systemConfig = systemConfigService.getSystemConfig();
