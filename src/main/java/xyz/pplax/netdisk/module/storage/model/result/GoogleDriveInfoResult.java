@@ -18,7 +18,7 @@ public class GoogleDriveInfoResult {
 	@ApiModelProperty(value = "drive id", example = "0AGrY0xF1D7PEUk9PVB")
 	private String id;
 	
-	@ApiModelProperty(value = "drive 名称", example = "zfile")
+	@ApiModelProperty(value = "drive 名称", example = "pplax")
 	private String name;
 	
 }

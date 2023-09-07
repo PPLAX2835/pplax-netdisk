@@ -20,13 +20,13 @@ public class SharePointInfoRequest {
     @ApiModelProperty(value = "访问令牌 (accessToken)", required = true, example = "EwBoxxxxxxxxxxxxxxxbAI=")
     private String accessToken;
 
-    @ApiModelProperty(value = "域名前缀", required = true, example = "zfile")
+    @ApiModelProperty(value = "域名前缀", required = true, example = "pplax")
     private String domainPrefix;
 
     @ApiModelProperty(value = "站点类型", required = true, example = "/sites/")
     private String siteType;
 
-    @ApiModelProperty(value = "站点名称", required = true, example = "zfile")
+    @ApiModelProperty(value = "站点名称", required = true, example = "pplax")
     private String siteName;
 
     @ApiModelProperty(value = "域名类型", notes = "com 或 cn", example = "com")
