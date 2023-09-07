@@ -11,6 +11,7 @@ import xyz.pplax.netdisk.module.link.mapper.ShortLinkMapper;
 import xyz.pplax.netdisk.module.link.model.entity.ShortLink;
 import xyz.pplax.netdisk.module.password.mapper.PasswordConfigMapper;
 import xyz.pplax.netdisk.module.password.model.entity.PasswordConfig;
+import xyz.pplax.netdisk.module.password.service.PasswordConfigService;
 import xyz.pplax.netdisk.module.readme.mapper.ReadmeConfigMapper;
 import xyz.pplax.netdisk.module.readme.model.entity.ReadmeConfig;
 import xyz.pplax.netdisk.module.storage.mapper.StorageSourceConfigMapper;
@@ -98,10 +99,15 @@ class PPLAXNetdiskApplicationTests {
 
     @Autowired
     PasswordConfigMapper passwordConfigMapper;
+    @Autowired
+    PasswordConfigService passwordConfigService;
     @Test
     public void PasswordConfigMapperTest() {
         List<PasswordConfig> byStorageId = passwordConfigMapper.findByStorageId(1);
         System.out.println(byStorageId);
+
+        List<PasswordConfig> byStorageId1 = passwordConfigService.findByStorageId(1);
+        System.out.println(byStorageId1);
 
     }
 
