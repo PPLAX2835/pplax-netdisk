@@ -9,6 +9,7 @@ import xyz.pplax.netdisk.module.filter.mapper.FilterConfigMapper;
 import xyz.pplax.netdisk.module.filter.model.entity.FilterConfig;
 import xyz.pplax.netdisk.module.link.mapper.ShortLinkMapper;
 import xyz.pplax.netdisk.module.link.model.entity.ShortLink;
+import xyz.pplax.netdisk.module.log.mapper.DownloadLogMapper;
 import xyz.pplax.netdisk.module.password.mapper.PasswordConfigMapper;
 import xyz.pplax.netdisk.module.password.model.entity.PasswordConfig;
 import xyz.pplax.netdisk.module.password.service.PasswordConfigService;
@@ -111,5 +112,12 @@ class PPLAXNetdiskApplicationTests {
 
     }
 
+    @Autowired
+    DownloadLogMapper downloadLogMapper;
+    @Test
+    public void DownloadLogMapperTest() {
+
+
+    }
 
 }
