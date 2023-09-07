@@ -49,7 +49,7 @@ public class TwoFactorAuthenticatorVerifyService {
 	public LoginTwoFactorAuthenticatorResult setupDevice() throws QrGenerationException {
 		// 生成 2FA 密钥
 		String secret = secretGenerator.generate();
-		QrData data = qrDataFactory.newBuilder().secret(secret).issuer("ZFile").build();
+		QrData data = qrDataFactory.newBuilder().secret(secret).issuer("PPLAX").build();
 
 		// 将生成的 2FA 密钥转换为 Base64 图像字符串
 		String qrCodeImage = getDataUriForImage(
