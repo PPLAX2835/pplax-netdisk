@@ -1,6 +1,6 @@
 //package xyz.pplax.netdisk.core.config;
 //
-//import im.zhaojun.zfile.module.storage.model.enums.StorageTypeEnum;
+//import xyz.pplax.netdisk.module.storage.model.enums.StorageTypeEnum;
 //import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 //import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 //import org.springframework.boot.web.server.ErrorPage;

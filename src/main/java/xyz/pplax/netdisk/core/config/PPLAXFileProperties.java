@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Data
 @EnableConfigurationProperties
 @Component
-@ConfigurationProperties(prefix = "zfile")
+@ConfigurationProperties(prefix = "pplax")
 public class PPLAXFileProperties {
 
 	private boolean debug;
