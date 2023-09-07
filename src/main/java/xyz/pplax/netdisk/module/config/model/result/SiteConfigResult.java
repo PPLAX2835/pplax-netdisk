@@ -1,6 +1,6 @@
 package xyz.pplax.netdisk.module.config.model.result;
 
-import im.zhaojun.zfile.module.config.model.enums.FileClickModeEnum;
+import xyz.pplax.netdisk.module.config.model.enums.FileClickModeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
