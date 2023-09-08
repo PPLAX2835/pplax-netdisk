@@ -40,13 +40,15 @@ public class FrontIndexController {
 		InputStream inputStream = resource.getInputStream();
 		String content = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
 
-		SystemConfigDTO systemConfig = systemConfigService.getSystemConfig();
-		String siteName = systemConfig.getSiteName();
-		if (StrUtil.isNotBlank(siteName)) {
+		// 设置DTO
+		SystemConfigDTO systemConfigDTO = systemConfigService.getSystemConfig();
+		String siteName = systemConfigDTO.getSiteName();								// 获得配置的站点名称
+		if (StrUtil.isNotBlank(siteName)) {												// 如果站点非空，就替换默认的
 			content = content.replace("<title>PPLAX</title>", "<title>" + siteName + "</title>");
 		}
 
-		String faviconUrl = systemConfig.getFaviconUrl();
+		// 替换网站图标
+		String faviconUrl = systemConfigDTO.getFaviconUrl();
 		if (StrUtil.isNotBlank(faviconUrl)) {
 			content = content.replace("/favicon.svg", faviconUrl);
 		}

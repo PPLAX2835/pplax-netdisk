@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * PPLAX 常量
- *
- * @author zhaojun
+ * PPLAX 文件常量
  */
 @Configuration
 public class PPLAXConstant {
@@ -21,6 +19,10 @@ public class PPLAXConstant {
      */
     public static Long TEXT_MAX_FILE_SIZE_KB = 100L;
 
+    /**
+     * 从配置中读取，获得最大支持文本文件大小
+     * @param maxFileSizeKb
+     */
     @Autowired(required = false)
     public void setTextMaxFileSizeMb(@Value("${pplax.preview.text.maxFileSizeKb}") Long maxFileSizeKb) {
         PPLAXConstant.TEXT_MAX_FILE_SIZE_KB = maxFileSizeKb;

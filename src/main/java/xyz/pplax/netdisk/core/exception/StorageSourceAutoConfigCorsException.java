@@ -5,8 +5,6 @@ import lombok.Getter;
 
 /**
  * 存储源自动设置 cors 异常
- *
- * @author zhaojun
  */
 @Getter
 public class StorageSourceAutoConfigCorsException extends RuntimeException {

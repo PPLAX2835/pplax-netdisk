@@ -18,8 +18,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * String 转枚举通用转换器工厂
- *
- * @author zhaojun
  */
 @Slf4j
 public class StringToEnumConverterFactory implements ConverterFactory<String, Enum<?>> {
@@ -46,6 +44,12 @@ public class StringToEnumConverterFactory implements ConverterFactory<String, En
         return converter;
     }
 
+    /**
+     * 自定义的字符串到枚举类型的转换器。
+     * Spring 的 Converter 接口，用于将字符串转换为指定枚举类型的对象。
+     *
+     * @param <T> 枚举类型的泛型。
+     */
     static class StringToEnumConverter<T extends Enum<?>> implements Converter<String, T> {
 
         private final Map<String, T> enumMap = new ConcurrentHashMap<>();

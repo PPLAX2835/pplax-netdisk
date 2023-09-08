@@ -16,16 +16,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * PPLAX Web 相关配置.
- *
- * @author zhaojun
+ * Web 相关配置.
  */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
 
     /**
-     * 添加自定义枚举格式化器.
+     * 自定义枚举格式化器.
      * @see StorageTypeEnum
      */
     @Override
@@ -50,6 +48,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
 
+    /**
+     * 返回错误页的WebServerFactoryCustomizer
+     * @return
+     */
     @Bean
     public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
         return factory -> {

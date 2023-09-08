@@ -2,7 +2,6 @@ package xyz.pplax.netdisk.core.exception.http;
 
 /**
  * Http 请求状态码异常 （返回状态码为 5xx 抛出此异常）
- * @author zhaojun
  */
 public class HttpResponseStatusErrorException extends RuntimeException {
 	

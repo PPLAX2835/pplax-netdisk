@@ -18,9 +18,7 @@ import java.io.File;
 import java.util.Date;
 
 /**
- * 获取系统日志接口
- *
- * @author zhaojun
+ * 获取系统日志
  */
 @Api(tags = "日志")
 @ApiSort(8)

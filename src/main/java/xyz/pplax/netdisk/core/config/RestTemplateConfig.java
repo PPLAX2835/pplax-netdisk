@@ -7,8 +7,6 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * restTemplate 相关配置
- *
- * @author zhaojun
  */
 @Configuration
 public class RestTemplateConfig {

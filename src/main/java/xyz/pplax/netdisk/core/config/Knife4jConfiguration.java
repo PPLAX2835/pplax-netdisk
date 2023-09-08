@@ -20,7 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author zhaojun
+ * Knife4j配置
+ * 访问h{ip}:8080/doc.html#
  */
 @Configuration
 @EnableSwagger2

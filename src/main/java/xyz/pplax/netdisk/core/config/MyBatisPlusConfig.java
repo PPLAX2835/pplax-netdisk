@@ -16,9 +16,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
- * mybatis-plus 配置类
- *
- * @author zhaojun
+ * mybatis-plus 配置
  */
 @Slf4j
 @Configuration

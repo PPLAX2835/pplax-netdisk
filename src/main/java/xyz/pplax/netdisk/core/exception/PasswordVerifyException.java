@@ -3,8 +3,6 @@ package xyz.pplax.netdisk.core.exception;
 
 /**
  * 密码校验失败异常
- *
- * @author zhaojun
  */
 public class PasswordVerifyException extends RuntimeException {
 

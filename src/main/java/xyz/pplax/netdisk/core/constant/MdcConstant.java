@@ -2,8 +2,6 @@ package xyz.pplax.netdisk.core.constant;
 
 /**
  * Slf4j mdc 常量
- *
- * @author zhaojun
  */
 public class MdcConstant {
 	

@@ -7,12 +7,21 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * 数据库连接配置
+ */
 @Component
 public class MyDatabaseIdProvider implements DatabaseIdProvider {
 
     private static final String DATABASE_MYSQL = "MySQL";
     private static final String DATABASE_SQLITE = "SQLite";
 
+    /**
+     * 根据数据源连接数据库
+     * @param dataSource
+     * @return
+     * @throws SQLException
+     */
     @Override
     public String getDatabaseId(DataSource dataSource) throws SQLException {
         Connection conn = dataSource.getConnection();

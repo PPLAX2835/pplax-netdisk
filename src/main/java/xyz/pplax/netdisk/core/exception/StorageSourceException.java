@@ -6,8 +6,6 @@ import lombok.Getter;
 
 /**
  * 存储源异常
- *
- * @author zhaojun
  */
 @EqualsAndHashCode(callSuper = true)
 @Getter

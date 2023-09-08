@@ -1,8 +1,7 @@
 package xyz.pplax.netdisk.core.exception;
 
-/**
- * @author zhaojun
- */
+
+
 public class PPLAXRetryException extends RuntimeException {
 	
 	public PPLAXRetryException() {

@@ -7,8 +7,6 @@ import lombok.EqualsAndHashCode;
 /**
  * Service 层异常
  * 所有 message 均为系统日志打印输出, CodeMsg 中的消息才是返回给客户端的消息.
- *
- * @author zhaojun
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

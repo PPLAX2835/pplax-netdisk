@@ -2,9 +2,7 @@ package xyz.pplax.netdisk.core.exception;
 
 import lombok.Getter;
 
-/**
- * @author zhaojun
- */
+
 @Getter
 public class StorageSourceRefreshTokenException extends RuntimeException {
 

@@ -82,7 +82,11 @@ public class GlobalExceptionHandler {
         return AjaxJson.getError(e.getResultMessage());
     }
 
-
+    /**
+     * 获取文件信息异常
+     * @param e
+     * @return
+     */
     @ExceptionHandler({PPLAXRuntimeException.class})
     @ResponseBody
     @ResponseStatus
@@ -93,7 +97,11 @@ public class GlobalExceptionHandler {
         return AjaxJson.getError(e.getMessage());
     }
 
-
+    /**
+     * 404异常
+     * @param e
+     * @return
+     */
     @ExceptionHandler({InvalidShortLinkException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -101,6 +109,11 @@ public class GlobalExceptionHandler {
         return AjaxJson.getError(e.getMessage());
     }
 
+    /**
+     * 403
+     * @param e
+     * @return
+     */
     @ExceptionHandler({IllegalDownloadLinkException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.FORBIDDEN)
@@ -108,6 +121,11 @@ public class GlobalExceptionHandler {
         return AjaxJson.getError(e.getMessage());
     }
 
+    /**
+     * 登录认证异常
+     * @param e
+     * @return
+     */
     @ExceptionHandler({LoginVerifyException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.FORBIDDEN)
@@ -115,6 +133,11 @@ public class GlobalExceptionHandler {
         return AjaxJson.getError(e.getMessage());
     }
 
+    /**
+     * 参数合法性处理异常
+     * @param e
+     * @return
+     */
     @ExceptionHandler(value = {MethodArgumentNotValidException.class, BindException.class})
     @ResponseBody
     public AjaxJson<Map<String, String>> handleValidException(Exception e) {
@@ -137,6 +160,10 @@ public class GlobalExceptionHandler {
     }
 
 
+    /**
+     * 文件不存在的异常
+     * @return
+     */
     @ExceptionHandler({FileNotFoundException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -166,7 +193,11 @@ public class GlobalExceptionHandler {
         return AjaxJson.getError(ex.getMessage());
     }
 
-
+    /**
+     * 上传方式非法
+     * @param e
+     * @return
+     */
     @ExceptionHandler({StorageSourceNotSupportProxyUploadException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
