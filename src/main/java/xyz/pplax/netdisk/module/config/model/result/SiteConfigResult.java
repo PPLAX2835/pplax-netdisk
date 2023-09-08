@@ -29,7 +29,7 @@ public class SiteConfigResult {
 	@ApiModelProperty(value = "备案号", example = "冀ICP备12345678号-1")
 	private String icp;
 
-	@ApiModelProperty(value = "站点域名(后端)", example = "https://pplax.vip", notes = "该值需配置为后端的站点域名，生成直链等操作需要此参数.")
+	@ApiModelProperty(value = "站点域名(后端)", example = "https://pplax.xyz", notes = "该值需配置为后端的站点域名，生成直链等操作需要此参数.")
 	private String domain;
 
 	@ApiModelProperty(value = "页面布局", notes = "full:全屏,center:居中", example = "full", required = true)
@@ -89,7 +89,7 @@ public class SiteConfigResult {
 	@ApiModelProperty(value = "最大同时上传文件数", example = "5")
 	private Integer maxFileUploads;
 
-	@ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.pplax.vip")
+	@ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.pplax.xyz")
 	private String onlyOfficeUrl;
 
 	@ApiModelProperty(value = "默认最大显示文件数", example = "1000")
@@ -110,7 +110,7 @@ public class SiteConfigResult {
 	@ApiModelProperty(value = "站点 Home Logo", example = "true")
 	private String siteHomeLogo;
 
-	@ApiModelProperty(value = "站点 Logo 点击后链接", example = "https://www.pplax.vip")
+	@ApiModelProperty(value = "站点 Logo 点击后链接", example = "https://www.pplax.xyz")
 	private String siteHomeLogoLink;
 
 	@ApiModelProperty(value = "站点 Logo 链接打开方式", example = "_blank")

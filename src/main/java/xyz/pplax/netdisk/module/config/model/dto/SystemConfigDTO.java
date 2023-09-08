@@ -2,14 +2,16 @@ package xyz.pplax.netdisk.module.config.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import xyz.pplax.netdisk.module.config.model.enums.FileClickModeEnum;
-import xyz.pplax.netdisk.module.link.model.enums.RefererTypeEnum;
 import xyz.pplax.netdisk.module.login.model.enums.LoginVerifyModeEnum;
+import xyz.pplax.netdisk.module.link.model.enums.RefererTypeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
  * 系统设置传输类
+ *
+ * @author zhaojun
  */
 @Data
 @ApiModel(description = "系统设置类")
@@ -34,7 +36,7 @@ public class SystemConfigDTO {
     @JsonIgnore
     private String password;
 
-    @ApiModelProperty(value = "站点域名", example = "https://pplax.vip")
+    @ApiModelProperty(value = "站点域名", example = "https://pplax.xyz")
     private String domain;
 
     @ApiModelProperty(value = "自定义 JS")
@@ -121,7 +123,7 @@ public class SystemConfigDTO {
     @ApiModelProperty(value = "最大同时上传文件数", example = "5")
     private Integer maxFileUploads;
 
-    @ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.pplax.vip")
+    @ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.pplax.xyz")
     private String onlyOfficeUrl;
 
     @ApiModelProperty(value = "是否允许路径直链可直接访问", example = "true", required = true)
@@ -145,7 +147,7 @@ public class SystemConfigDTO {
     @ApiModelProperty(value = "站点 Home Logo", example = "true")
     private String siteHomeLogo;
 
-    @ApiModelProperty(value = "站点 Logo 点击后链接", example = "https://www.pplax.vip")
+    @ApiModelProperty(value = "站点 Logo 点击后链接", example = "https://www.pplax.xyz")
     private String siteHomeLogoLink;
 
     @ApiModelProperty(value = "站点 Logo 链接打开方式", example = "_blank")

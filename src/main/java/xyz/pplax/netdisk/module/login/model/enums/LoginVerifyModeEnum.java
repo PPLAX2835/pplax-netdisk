@@ -7,6 +7,8 @@ import lombok.Getter;
 
 /**
  * 登陆验证方式枚举
+ *
+ * @author zhaojun
  */
 @Getter
 @AllArgsConstructor

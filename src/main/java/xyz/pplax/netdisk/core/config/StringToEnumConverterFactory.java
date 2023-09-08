@@ -18,6 +18,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * String 转枚举通用转换器工厂
+ *
+ * @author zhaojun
  */
 @Slf4j
 public class StringToEnumConverterFactory implements ConverterFactory<String, Enum<?>> {

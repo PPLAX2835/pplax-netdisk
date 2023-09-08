@@ -13,9 +13,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface ShortLinkMapper extends BaseMapper<ShortLink> {
 
-
-//	ShortLink updateUrlStorageId(@Param("updateSubPath")String updateSubPath, @Param("newSubPath")String newSubPath);
-
     /**
      * 根据短链接 key 查询短链接
      *

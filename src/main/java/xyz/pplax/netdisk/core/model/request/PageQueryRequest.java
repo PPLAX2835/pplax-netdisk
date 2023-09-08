@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * 分页参数
+ * @author zhaojun
  */
 @Data
 public class PageQueryRequest {

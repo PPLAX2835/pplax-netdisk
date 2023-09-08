@@ -2,19 +2,24 @@ package xyz.pplax.netdisk.module.config.controller;
 
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSort;
-import xyz.pplax.netdisk.core.config.PPLAXFileProperties;
+import xyz.pplax.netdisk.module.storage.service.StorageSourceService;
+import xyz.pplax.netdisk.module.config.service.SystemConfigService;
+import xyz.pplax.netdisk.core.config.PPLAXProperties;
 import xyz.pplax.netdisk.core.util.AjaxJson;
 import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
-import xyz.pplax.netdisk.module.config.model.result.SiteConfigResult;
-import xyz.pplax.netdisk.module.config.service.SystemConfigService;
 import xyz.pplax.netdisk.module.storage.model.request.base.FileListConfigRequest;
+import xyz.pplax.netdisk.module.config.model.result.SiteConfigResult;
 import xyz.pplax.netdisk.module.storage.model.result.StorageSourceConfigResult;
-import xyz.pplax.netdisk.module.storage.service.StorageSourceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -32,7 +37,7 @@ import javax.validation.Valid;
 public class SiteController {
 
 	@Resource
-	private PPLAXFileProperties pplaxFileProperties;
+	private PPLAXProperties pplaxProperties;
 
 	@Resource
 	private StorageSourceService storageSourceService;
@@ -49,7 +54,7 @@ public class SiteController {
 		SiteConfigResult siteConfigResult = new SiteConfigResult();
 		BeanUtils.copyProperties(systemConfig, siteConfigResult);
 
-		siteConfigResult.setDebugMode(pplaxFileProperties.isDebug());
+		siteConfigResult.setDebugMode(pplaxProperties.isDebug());
 		return AjaxJson.getSuccessData(siteConfigResult);
 	}
 
@@ -65,7 +70,7 @@ public class SiteController {
 
 	@ResponseBody
 	@ApiOperationSupport(order = 3)
-	@ApiOperation(value = "重置管理员密码", notes = "开启 debug 模式时，访问此接口会强制将管理员账户密码修改为 admin 123456, 并修改登录验证方式为图片验证码, 详见：https://docs.pplax.vip/#/question?id=reset-pwd")
+	@ApiOperation(value = "重置管理员密码", notes = "开启 debug 模式时，访问此接口会强制将管理员账户密码修改为 admin 123456, 并修改登录验证方式为图片验证码, 详见：https://docs.pplax.xyz/#/question?id=reset-pwd")
 	@GetMapping("/reset-password")
 	public AjaxJson<?> resetPwd() {
 		systemConfigService.resetAdminLoginInfo();

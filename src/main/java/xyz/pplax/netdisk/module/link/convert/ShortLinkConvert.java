@@ -1,8 +1,8 @@
 package xyz.pplax.netdisk.module.link.convert;
 
 import xyz.pplax.netdisk.module.link.model.entity.ShortLink;
-import xyz.pplax.netdisk.module.link.model.request.ShortLinkResult;
 import xyz.pplax.netdisk.module.storage.model.entity.StorageSource;
+import xyz.pplax.netdisk.module.link.model.request.ShortLinkResult;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;

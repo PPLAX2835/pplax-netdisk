@@ -7,6 +7,8 @@ import lombok.Data;
 
 /**
  * 直链设置请求参数类
+ *
+ * @author zhaojun
  */
 @Data
 @ApiModel(description = "直链设置请求参数类")

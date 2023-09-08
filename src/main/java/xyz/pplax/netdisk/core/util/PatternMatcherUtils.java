@@ -1,7 +1,7 @@
 package xyz.pplax.netdisk.core.util;
 
 import cn.hutool.core.util.StrUtil;
-import xyz.pplax.netdisk.core.constant.PPLAXFileConstant;
+import xyz.pplax.netdisk.core.constant.PPLAXConstant;
 
 import java.nio.file.FileSystems;
 import java.nio.file.PathMatcher;
@@ -39,12 +39,12 @@ public class PatternMatcherUtils {
 	 */
 	public static boolean testCompatibilityGlobPattern(String pattern, String test) {
 		// 如果规则表达式最开始没有 /, 则兼容在最前方加上 /.
-		if (!StrUtil.startWith(pattern, PPLAXFileConstant.PATH_SEPARATOR)) {
-			pattern = PPLAXFileConstant.PATH_SEPARATOR + pattern;
+		if (!StrUtil.startWith(pattern, PPLAXConstant.PATH_SEPARATOR)) {
+			pattern = PPLAXConstant.PATH_SEPARATOR + pattern;
 		}
 		
 		// 兼容性处理.
-		test = StringUtils.concat(test, PPLAXFileConstant.PATH_SEPARATOR);
+		test = StringUtils.concat(test, PPLAXConstant.PATH_SEPARATOR);
 		if (StrUtil.endWith(pattern, "/**")) {
 			test += "xxx";
 		}

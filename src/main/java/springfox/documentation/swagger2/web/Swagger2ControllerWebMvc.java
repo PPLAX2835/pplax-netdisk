@@ -47,11 +47,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.mappers.ServiceModelToSwagger2Mapper;
 
 import javax.servlet.http.HttpServletRequest;
+
 import java.util.List;
 
-import static java.util.Optional.ofNullable;
-import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
-import static springfox.documentation.swagger2.web.Swagger2ControllerWebMvc.SWAGGER2_SPECIFICATION_PATH;
+import static java.util.Optional.*;
+import static org.springframework.util.MimeTypeUtils.*;
+import static springfox.documentation.swagger2.web.Swagger2ControllerWebMvc.*;
 
 @ApiIgnore
 @RestController

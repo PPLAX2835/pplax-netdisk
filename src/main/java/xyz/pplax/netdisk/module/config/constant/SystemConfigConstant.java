@@ -2,6 +2,8 @@ package xyz.pplax.netdisk.module.config.constant;
 
 /**
  * 系统设置字段常量.
+ *
+ * @author zhaojun
  */
 public class SystemConfigConstant {
 

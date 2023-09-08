@@ -1,8 +1,8 @@
 package xyz.pplax.netdisk.module.storage.model.request.base;
 
 import cn.hutool.core.util.StrUtil;
-import xyz.pplax.netdisk.core.util.StringUtils;
 import xyz.pplax.netdisk.core.validation.StringListValue;
+import xyz.pplax.netdisk.core.util.StringUtils;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

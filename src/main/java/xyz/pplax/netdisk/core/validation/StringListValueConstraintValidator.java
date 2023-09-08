@@ -10,6 +10,8 @@ import java.util.Set;
 
 /**
  * 字符串列表值校验器
+ *
+ * @author zhaojun
  */
 public class StringListValueConstraintValidator implements ConstraintValidator<StringListValue, String> {
 

@@ -159,8 +159,8 @@
          true： 表示当前logger的appender-ref和rootLogger的appender-ref都有效
      -->
 
-    <!-- 指定 pplax 输出的日志到文件中 -->
-    <logger name="im.zhaojun.pplax" level="DEBUG" >
+    <!-- 指定 PPLAX 输出的日志到文件中 -->
+    <logger name="xyz.pplax.netdisk" level="DEBUG" >
         <appender-ref ref="debug_file"/>
     </logger>
 

@@ -14,7 +14,7 @@ import lombok.ToString;
 @ToString
 public class GoogleDriveParam extends ProxyTransferParam {
 
-	@StorageParamItem(name = "clientId", defaultValue = "${pplax.gd.clientId}", order = 1, description = "<font color=\"red\">默认 API 仅用作示例，因审核原因，目前不可用，请自行申请 API</font>", link = "https://docs.pplax.vip/advanced#google-drive-api", linkName = "自定义 API 文档")
+	@StorageParamItem(name = "clientId", defaultValue = "${pplax.gd.clientId}", order = 1, description = "<font color=\"red\">默认 API 仅用作示例，因审核原因，目前不可用，请自行申请 API</font>", link = "https://docs.pplax.xyz/advanced#google-drive-api", linkName = "自定义 API 文档")
 	private String clientId;
 
 	@StorageParamItem(name = "SecretKey", defaultValue = "${pplax.gd.clientSecret}", order = 2)

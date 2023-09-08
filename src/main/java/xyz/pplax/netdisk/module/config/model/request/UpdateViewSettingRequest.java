@@ -7,6 +7,8 @@ import lombok.Data;
 
 /**
  * 显示设置请求参数类
+ *
+ * @author zhaojun
  */
 @Data
 @ApiModel(description = "显示设置请求参数类")
@@ -51,7 +53,7 @@ public class UpdateViewSettingRequest {
 	@ApiModelProperty(value = "默认文件点击习惯", example = "click")
 	private FileClickModeEnum fileClickMode;
 
-	@ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.pplax.vip")
+	@ApiModelProperty(value = "onlyOffice 在线预览地址", example = "http://office.pplax.xyz")
 	private String onlyOfficeUrl;
 
 	@ApiModelProperty(value = "默认最大显示文件数", example = "1000")

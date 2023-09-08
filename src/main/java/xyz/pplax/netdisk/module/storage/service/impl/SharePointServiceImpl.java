@@ -1,7 +1,7 @@
 package xyz.pplax.netdisk.module.storage.service.impl;
 
-import xyz.pplax.netdisk.module.storage.model.enums.StorageTypeEnum;
 import xyz.pplax.netdisk.module.storage.model.param.SharePointParam;
+import xyz.pplax.netdisk.module.storage.model.enums.StorageTypeEnum;
 import xyz.pplax.netdisk.module.storage.service.base.AbstractSharePointServiceBase;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

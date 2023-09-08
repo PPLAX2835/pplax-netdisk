@@ -7,6 +7,8 @@ import lombok.Getter;
 
 /**
  * 文件点击模式枚举, 用于控制文件是单击打开还是双击打开
+ *
+ * @author zhaojun
  */
 @Getter
 @AllArgsConstructor

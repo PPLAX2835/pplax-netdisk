@@ -17,14 +17,6 @@ import java.util.List;
 public interface StorageSourceConfigMapper extends BaseMapper<StorageSourceConfig> {
 
     /**
-     * 根据type查询 按照id排序
-     * @param type
-     * @return
-     */
-    List<StorageSourceConfig> findByTypeOrderById(@Param("type") String type);
-
-
-    /**
      * 根据存储源 ID 查询存储源拓展配置, 并按照存储源 id 排序
      *
      * @param   storageId

@@ -7,9 +7,9 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
-import xyz.pplax.netdisk.core.constant.PPLAXFileConstant;
-import xyz.pplax.netdisk.core.exception.PPLAXRetryException;
+import xyz.pplax.netdisk.core.constant.PPLAXConstant;
 import xyz.pplax.netdisk.core.exception.StorageSourceRefreshTokenException;
+import xyz.pplax.netdisk.core.exception.PPLAXRetryException;
 import xyz.pplax.netdisk.core.util.StringUtils;
 import xyz.pplax.netdisk.module.storage.constant.StorageConfigConstant;
 import xyz.pplax.netdisk.module.storage.model.bo.RefreshTokenCacheBO;
@@ -21,14 +21,22 @@ import xyz.pplax.netdisk.module.storage.model.result.FileItemResult;
 import xyz.pplax.netdisk.module.storage.service.StorageSourceConfigService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.retry.RetryCallback;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author zhaojun
@@ -189,7 +197,7 @@ public abstract class AbstractMicrosoftDriveService<P extends MicrosoftDrivePara
             if (nextPageLink != null) {
                 nextPageLink = nextPageLink.replace("+", "%2B");
                 requestUrl = URLUtil.decode(nextPageLink);
-            } else if (PPLAXFileConstant.PATH_SEPARATOR.equalsIgnoreCase(fullPath) || "".equalsIgnoreCase(fullPath)) {
+            } else if (PPLAXConstant.PATH_SEPARATOR.equalsIgnoreCase(fullPath) || "".equalsIgnoreCase(fullPath)) {
                 requestUrl = DRIVER_ROOT_URL;
             } else {
                 requestUrl = DRIVER_ITEMS_URL;
@@ -259,7 +267,7 @@ public abstract class AbstractMicrosoftDriveService<P extends MicrosoftDrivePara
 
         String requestUrl;
 
-        if (PPLAXFileConstant.PATH_SEPARATOR.equalsIgnoreCase(fullPath) || "".equalsIgnoreCase(fullPath)) {
+        if (PPLAXConstant.PATH_SEPARATOR.equalsIgnoreCase(fullPath) || "".equalsIgnoreCase(fullPath)) {
             requestUrl = DRIVER_ROOT_URL;
         } else {
             requestUrl = DRIVER_ITEMS_URL;

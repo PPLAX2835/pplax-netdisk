@@ -7,6 +7,8 @@ import lombok.Data;
 
 /**
  * 登陆安全设置请求参数类
+ *
+ * @author zhaojun
  */
 @Data
 @ApiModel(description = "登陆安全设置请求参数类")

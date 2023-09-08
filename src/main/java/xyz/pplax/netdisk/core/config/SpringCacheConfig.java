@@ -12,12 +12,14 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Spring Cache 相关配置
+ *
+ * @author zhaojun
  */
 @Configuration
 @EnableCaching
 public class SpringCacheConfig {
 
-	@Value("${pplax.dbCache.enable}")
+	@Value("${pplax.dbCache.enable:true}")
 	private Boolean dbCacheEnable;
 
 	/**

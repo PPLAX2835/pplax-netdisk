@@ -6,6 +6,8 @@ import lombok.Data;
 
 /**
  * 生成图片验证码结果类
+ *
+ * @author zhaojun
  */
 @Data
 @ApiModel(description = "生成图片验证码结果类")

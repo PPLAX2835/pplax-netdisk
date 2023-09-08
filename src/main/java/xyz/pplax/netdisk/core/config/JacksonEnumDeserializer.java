@@ -15,7 +15,9 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
- * Jackson 枚举反序列化
+ * Jackson 枚举反序列化器
+ *
+ * @author zhaojun
  */
 @Slf4j
 @Setter

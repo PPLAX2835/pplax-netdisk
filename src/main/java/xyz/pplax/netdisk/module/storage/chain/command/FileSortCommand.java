@@ -1,9 +1,9 @@
 package xyz.pplax.netdisk.module.storage.chain.command;
 
-import xyz.pplax.netdisk.core.util.FileComparator;
 import xyz.pplax.netdisk.module.storage.chain.FileContext;
 import xyz.pplax.netdisk.module.storage.model.request.base.FileListRequest;
 import xyz.pplax.netdisk.module.storage.model.result.FileItemResult;
+import xyz.pplax.netdisk.core.util.FileComparator;
 import org.apache.commons.chain.Command;
 import org.apache.commons.chain.Context;
 import org.springframework.stereotype.Service;

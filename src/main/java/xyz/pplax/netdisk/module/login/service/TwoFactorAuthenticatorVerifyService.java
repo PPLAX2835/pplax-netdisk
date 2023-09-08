@@ -7,11 +7,11 @@ import dev.samstevens.totp.qr.QrDataFactory;
 import dev.samstevens.totp.qr.QrGenerator;
 import dev.samstevens.totp.secret.SecretGenerator;
 import xyz.pplax.netdisk.core.exception.LoginVerifyException;
-import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
-import xyz.pplax.netdisk.module.config.service.SystemConfigService;
-import xyz.pplax.netdisk.module.login.model.enums.LoginVerifyModeEnum;
 import xyz.pplax.netdisk.module.login.model.request.VerifyLoginTwoFactorAuthenticatorRequest;
 import xyz.pplax.netdisk.module.login.model.result.LoginTwoFactorAuthenticatorResult;
+import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
+import xyz.pplax.netdisk.module.login.model.enums.LoginVerifyModeEnum;
+import xyz.pplax.netdisk.module.config.service.SystemConfigService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -20,6 +20,8 @@ import static dev.samstevens.totp.util.Utils.getDataUriForImage;
 
 /**
  * 2FA 双因素认证 Service
+ *
+ * @author zhaojun
  */
 @Service
 public class TwoFactorAuthenticatorVerifyService {

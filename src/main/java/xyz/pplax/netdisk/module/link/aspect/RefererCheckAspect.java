@@ -2,10 +2,10 @@ package xyz.pplax.netdisk.module.link.aspect;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
-import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
-import xyz.pplax.netdisk.module.config.service.SystemConfigService;
-import xyz.pplax.netdisk.module.link.model.enums.RefererTypeEnum;
 import xyz.pplax.netdisk.module.storage.annotation.RefererCheck;
+import xyz.pplax.netdisk.module.link.model.enums.RefererTypeEnum;
+import xyz.pplax.netdisk.module.config.service.SystemConfigService;
+import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

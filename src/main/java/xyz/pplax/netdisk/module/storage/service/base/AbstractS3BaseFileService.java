@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import com.amazonaws.HttpMethod;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.*;
-import xyz.pplax.netdisk.core.constant.PPLAXFileConstant;
+import xyz.pplax.netdisk.core.constant.PPLAXConstant;
 import xyz.pplax.netdisk.core.exception.StorageSourceAutoConfigCorsException;
 import xyz.pplax.netdisk.core.util.StringUtils;
 import xyz.pplax.netdisk.module.config.service.SystemConfigService;
@@ -19,10 +19,7 @@ import javax.annotation.Resource;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author zhaojun
@@ -86,7 +83,7 @@ public abstract class AbstractS3BaseFileService<P extends S3BaseParam> extends A
     public List<FileItemResult> s3FileList(String path) {
         String bucketName = param.getBucketName();
         path = StringUtils.trimStartSlashes(path);
-        String fullPath = StringUtils.trimStartSlashes(StringUtils.concat(param.getBasePath(), path, PPLAXFileConstant.PATH_SEPARATOR));
+        String fullPath = StringUtils.trimStartSlashes(StringUtils.concat(param.getBasePath(), path, PPLAXConstant.PATH_SEPARATOR));
 
         List<FileItemResult> fileItemList = new ArrayList<>();
 
@@ -160,7 +157,7 @@ public abstract class AbstractS3BaseFileService<P extends S3BaseParam> extends A
     @Override
     public boolean newFolder(String path, String name) {
         name = StringUtils.trimSlashes(name);
-        String fullPath = StringUtils.concat(param.getBasePath(), path, name, PPLAXFileConstant.PATH_SEPARATOR);
+        String fullPath = StringUtils.concat(param.getBasePath(), path, name, PPLAXConstant.PATH_SEPARATOR);
         fullPath = StringUtils.trimStartSlashes(fullPath);
         PutObjectRequest putObjectRequest = new PutObjectRequest(param.getBucketName(), fullPath, EMPTY_INPUT_STREAM, null);
         PutObjectResult putObjectResult = s3Client.putObject(putObjectRequest);

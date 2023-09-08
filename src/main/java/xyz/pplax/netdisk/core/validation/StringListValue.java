@@ -11,6 +11,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * 字符串列表值校验注解
+ *
+ * @author zhaojun
  */
 @Documented
 @Constraint(validatedBy = { StringListValueConstraintValidator.class })

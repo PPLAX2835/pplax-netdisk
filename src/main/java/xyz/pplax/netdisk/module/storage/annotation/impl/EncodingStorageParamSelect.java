@@ -2,8 +2,8 @@ package xyz.pplax.netdisk.module.storage.annotation.impl;
 
 import xyz.pplax.netdisk.module.storage.annotation.StorageParamItem;
 import xyz.pplax.netdisk.module.storage.annotation.StorageParamSelect;
-import xyz.pplax.netdisk.module.storage.model.bo.StorageSourceParamDef;
 import xyz.pplax.netdisk.module.storage.model.param.IStorageParam;
+import xyz.pplax.netdisk.module.storage.model.bo.StorageSourceParamDef;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;

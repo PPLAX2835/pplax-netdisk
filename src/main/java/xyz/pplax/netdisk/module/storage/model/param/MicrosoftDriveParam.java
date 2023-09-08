@@ -27,7 +27,7 @@ public class MicrosoftDriveParam implements IStorageParam {
 	private String refreshToken;
 
 	@StorageParamItem(name = "反代域名", required = false, order = 7, description = "世纪互联版不建议启用，国际版启用后不一定比启用前快，这个要根据仔细网络情况决定.",
-			link = "https://docs.pplax.vip/#/advanced?id=onedrive-cf", linkName = "配置文档")
+			link = "https://docs.pplax.xyz/#/advanced?id=onedrive-cf", linkName = "配置文档")
 	private String proxyDomain;
 
 	@StorageParamItem(name = "基路径", defaultValue = "/", order = 8, description = "基路径表示读取的根文件夹，不填写表示允许读取所有。如： '/'，'/文件夹1'")

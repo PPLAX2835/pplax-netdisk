@@ -1,7 +1,7 @@
 package xyz.pplax.netdisk.module.storage.annotation;
 
-import xyz.pplax.netdisk.module.storage.model.bo.StorageSourceParamDef;
 import xyz.pplax.netdisk.module.storage.model.param.IStorageParam;
+import xyz.pplax.netdisk.module.storage.model.bo.StorageSourceParamDef;
 
 import java.util.List;
 

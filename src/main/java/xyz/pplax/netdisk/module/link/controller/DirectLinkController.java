@@ -1,7 +1,7 @@
 package xyz.pplax.netdisk.module.link.controller;
 
 import com.github.xiaoymin.knife4j.annotations.ApiSort;
-import xyz.pplax.netdisk.core.constant.PPLAXFileConstant;
+import xyz.pplax.netdisk.core.constant.PPLAXConstant;
 import xyz.pplax.netdisk.core.service.DynamicControllerManager;
 import xyz.pplax.netdisk.module.config.service.SystemConfigService;
 import xyz.pplax.netdisk.module.config.utils.SpringMvcUtils;
@@ -56,7 +56,7 @@ public class DirectLinkController {
         String filePath = SpringMvcUtils.getExtractPathWithinPattern();
 
         // 如果路径不是以 / 开头, 则补充上
-        if (filePath.length() > 0 && filePath.charAt(0) != PPLAXFileConstant.PATH_SEPARATOR_CHAR) {
+        if (filePath.length() > 0 && filePath.charAt(0) != PPLAXConstant.PATH_SEPARATOR_CHAR) {
             filePath = "/" + filePath;
         }
 

@@ -1,8 +1,8 @@
 package xyz.pplax.netdisk.core.util;
 
 import cn.hutool.core.comparator.CompareUtil;
-import xyz.pplax.netdisk.module.storage.model.enums.FileTypeEnum;
 import xyz.pplax.netdisk.module.storage.model.result.FileItemResult;
+import xyz.pplax.netdisk.module.storage.model.enums.FileTypeEnum;
 
 import java.util.Comparator;
 

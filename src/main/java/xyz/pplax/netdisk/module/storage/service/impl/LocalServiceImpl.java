@@ -5,7 +5,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import xyz.pplax.netdisk.core.constant.PPLAXFileConstant;
+import xyz.pplax.netdisk.core.constant.PPLAXConstant;
 import xyz.pplax.netdisk.core.exception.file.init.InitializeStorageSourceException;
 import xyz.pplax.netdisk.core.util.CodeMsg;
 import xyz.pplax.netdisk.core.util.RequestHolder;
@@ -21,7 +21,11 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
-import org.springframework.http.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.MediaTypeFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -173,7 +177,7 @@ public class LocalServiceImpl extends AbstractProxyTransferService<LocalParam> {
         checkPathSecurity(pathAndName);
 
         String baseFilePath = param.getFilePath();
-        String uploadPath = StringUtils.removeDuplicateSlashes(baseFilePath + PPLAXFileConstant.PATH_SEPARATOR + pathAndName);
+        String uploadPath = StringUtils.removeDuplicateSlashes(baseFilePath + PPLAXConstant.PATH_SEPARATOR + pathAndName);
         // 如果目录不存在则创建
         String parentPath = FileUtil.getParent(uploadPath, 1);
         if (!FileUtil.exist(parentPath)) {
@@ -192,7 +196,7 @@ public class LocalServiceImpl extends AbstractProxyTransferService<LocalParam> {
     public ResponseEntity<Resource> downloadToStream(String pathAndName) {
         checkPathSecurity(pathAndName);
 
-        File file = new File(StringUtils.removeDuplicateSlashes(param.getFilePath() + PPLAXFileConstant.PATH_SEPARATOR + pathAndName));
+        File file = new File(StringUtils.removeDuplicateSlashes(param.getFilePath() + PPLAXConstant.PATH_SEPARATOR + pathAndName));
         if (!file.exists()) {
             ByteArrayResource byteArrayResource = new ByteArrayResource("文件不存在或异常，请联系管理员.".getBytes(StandardCharsets.UTF_8));
             return ResponseEntity.status(HttpStatus.NOT_FOUND)

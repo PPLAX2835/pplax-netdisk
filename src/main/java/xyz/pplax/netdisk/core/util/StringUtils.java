@@ -4,9 +4,9 @@ import cn.hutool.core.net.URLEncodeUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import xyz.pplax.netdisk.core.constant.PPLAXFileConstant;
-import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
 import xyz.pplax.netdisk.module.config.service.SystemConfigService;
+import xyz.pplax.netdisk.core.constant.PPLAXConstant;
+import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -347,7 +347,7 @@ public class StringUtils {
         int prevIndex = -1;
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-            if (c == PPLAXFileConstant.PATH_SEPARATOR_CHAR) {
+            if (c == PPLAXConstant.PATH_SEPARATOR_CHAR) {
                 if (prevIndex < i) {
                     String substring = str.substring(prevIndex + 1, i);
                     sb.append(URLEncodeUtil.encodeAll(substring));
@@ -388,14 +388,14 @@ public class StringUtils {
      * @return  父级目录
      */
     public static String getParentPath(String path) {
-        int toIndex = StrUtil.lastIndexOfIgnoreCase(path, PPLAXFileConstant.PATH_SEPARATOR);
+        int toIndex = StrUtil.lastIndexOfIgnoreCase(path, PPLAXConstant.PATH_SEPARATOR);
         if (toIndex <= 0) {
             return "/";
         } else {
             return StrUtil.sub(path, 0, toIndex);
         }
     }
-
+    
     public static String removeAllLineBreaksAndTrim(String str) {
         String removeResult = StrUtil.removeAllLineBreaks(str);
         return StrUtil.trim(removeResult);

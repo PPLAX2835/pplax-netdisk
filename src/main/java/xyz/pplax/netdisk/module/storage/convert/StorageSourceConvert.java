@@ -60,8 +60,8 @@ public interface StorageSourceConvert {
 
 
 	StorageSourceDTO entityToDTO(StorageSource storageSource, StorageSourceAllParamDTO storageSourceAllParam);
-
-
+	
+	
 	/**
 	 * 将 SaveStorageSourceRequest 转换为 StorageSource
 	 *
@@ -71,5 +71,5 @@ public interface StorageSourceConvert {
 	 * @return  StorageSource 实体
 	 */
 	StorageSource saveRequestToEntity(SaveStorageSourceRequest saveStorageSourceRequest);
-
+	
 }

@@ -1,7 +1,7 @@
 package xyz.pplax.netdisk.module.storage.model.result;
 
-import xyz.pplax.netdisk.module.storage.model.bo.RefreshTokenCacheBO;
 import xyz.pplax.netdisk.module.storage.model.enums.SearchModeEnum;
+import xyz.pplax.netdisk.module.storage.model.bo.RefreshTokenCacheBO;
 import xyz.pplax.netdisk.module.storage.model.enums.StorageTypeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

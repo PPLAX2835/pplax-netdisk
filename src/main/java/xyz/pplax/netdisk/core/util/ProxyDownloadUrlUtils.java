@@ -62,13 +62,13 @@ public class ProxyDownloadUrlUtils {
 		String rsaHexKey = systemConfigService.getRsaHexKeyOrGenerate();
 		byte[] key = HexUtil.decodeHex(rsaHexKey);
 		SymmetricCrypto aes = new SymmetricCrypto(SymmetricAlgorithm.AES, key);
-
+		
 		long currentTimeMillis = System.currentTimeMillis();
-
+		
 		String storageId = null;
 		String pathAndName = null;
 		String expiredSecond = null;
-
+		
 		try {
 			//解密
 			String decryptStr = aes.decryptStr(signature);
@@ -76,14 +76,14 @@ public class ProxyDownloadUrlUtils {
 			storageId = split.get(0);
 			pathAndName = split.get(1);
 			expiredSecond = split.get(2);
-
+			
 			// 校验存储源 ID 和文件路径及是否过期.
 			if (StrUtil.equals(storageId, Convert.toStr(expectedStorageId))
 				&& StrUtil.equals(StringUtils.concat(pathAndName), StringUtils.concat(expectedPathAndName))
 				&& currentTimeMillis < Convert.toLong(expiredSecond)) {
 				return true;
 			}
-
+			
 			log.warn("校验链接已过期或不匹配, signature: {}, storageId={}, pathAndName={}, expiredSecond={}, now:={}", signature, storageId, pathAndName, expiredSecond, currentTimeMillis);
 		} catch (Exception e) {
 			log.error("校验签名链接异常, signature: {}, storageId={}, pathAndName={}, expiredSecond={}, now:={}", signature, storageId, pathAndName, expiredSecond, currentTimeMillis);

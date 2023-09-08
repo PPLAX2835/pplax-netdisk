@@ -41,7 +41,7 @@ public class LogController {
 
         File fileZip = ZipUtil.zip(pplaxLogPath);
         String currentDate = DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss");
-        return FileResponseUtil.exportSingleThread(fileZip, "PPLAX 诊断日志 - " + currentDate + ".zip");
+        return FileResponseUtil.exportSingleThread(fileZip, "pplax 诊断日志 - " + currentDate + ".zip");
     }
 
 }

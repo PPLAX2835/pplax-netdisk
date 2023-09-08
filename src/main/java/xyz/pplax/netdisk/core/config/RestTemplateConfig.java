@@ -7,10 +7,12 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * restTemplate 相关配置
+ *
+ * @author zhaojun
  */
 @Configuration
 public class RestTemplateConfig {
-
+	
 	/**
 	 * OneDrive 请求 RestTemplate.
 	 * 获取 header 中的 storageId 来判断到底是哪个存储源 ID, 在请求头中添加 Bearer: Authorization {token} 信息, 用于 API 认证.
@@ -21,5 +23,5 @@ public class RestTemplateConfig {
 		restTemplate.setRequestFactory(new PPLAXOkHttp3ClientHttpRequestFactory());
 		return restTemplate;
 	}
-
+	
 }

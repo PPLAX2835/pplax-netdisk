@@ -15,18 +15,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
- * 处理HTTP响应的Body部分
+ * @author zhaojun
  */
 @ControllerAdvice
 public class CommonResultControllerAdvice implements ResponseBodyAdvice<Object> {
 
-	/**
-	 * 确定这个Advice是否能够处理特定的HTTP消息转换
-	 * 只有当转换器类型是AbstractJackson2HttpMessageConverter的子类时，这个Advice才会处理
-	 * @param returnType
-	 * @param converterType
-	 * @return
-	 */
 	@Override
 	public boolean supports(MethodParameter returnType,
 							@NonNull Class<? extends HttpMessageConverter<?>> converterType) {

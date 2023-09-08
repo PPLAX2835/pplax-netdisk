@@ -1,8 +1,8 @@
 package xyz.pplax.netdisk.module.log.convert;
 
 import xyz.pplax.netdisk.module.log.model.entity.DownloadLog;
-import xyz.pplax.netdisk.module.log.model.result.DownloadLogResult;
 import xyz.pplax.netdisk.module.storage.model.entity.StorageSource;
+import xyz.pplax.netdisk.module.log.model.result.DownloadLogResult;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;

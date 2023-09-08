@@ -30,7 +30,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.plugin.core.PluginRegistry;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.HtmlUtils;
 import springfox.documentation.annotations.ApiIgnore;
 import springfox.documentation.service.Documentation;
@@ -45,8 +49,8 @@ import springfox.documentation.swagger2.mappers.ServiceModelToSwagger2Mapper;
 import java.util.List;
 import java.util.Optional;
 
-import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
-import static springfox.documentation.swagger2.web.Swagger2ControllerWebMvc.SWAGGER2_SPECIFICATION_PATH;
+import static org.springframework.util.MimeTypeUtils.*;
+import static springfox.documentation.swagger2.web.Swagger2ControllerWebMvc.*;
 
 @RestController
 @ApiIgnore

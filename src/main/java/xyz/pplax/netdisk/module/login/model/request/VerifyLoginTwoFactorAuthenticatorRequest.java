@@ -9,6 +9,8 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * 验证 2FA 认证返回结果
+ *
+ * @author zhaojun
  */
 @Data
 @AllArgsConstructor

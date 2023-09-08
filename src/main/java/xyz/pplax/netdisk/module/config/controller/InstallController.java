@@ -3,14 +3,18 @@ package xyz.pplax.netdisk.module.config.controller;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.crypto.SecureUtil;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
+import xyz.pplax.netdisk.module.config.service.SystemConfigService;
 import xyz.pplax.netdisk.core.exception.InstallSystemException;
 import xyz.pplax.netdisk.core.util.AjaxJson;
 import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
 import xyz.pplax.netdisk.module.config.model.request.InstallSystemRequest;
-import xyz.pplax.netdisk.module.config.service.SystemConfigService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 

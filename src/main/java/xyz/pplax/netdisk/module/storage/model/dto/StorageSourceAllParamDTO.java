@@ -82,7 +82,7 @@ public class StorageSourceAllParamDTO {
     @ApiModelProperty(value = "站点类型", example = "sites")
     private String siteType;
 
-    @ApiModelProperty(value = "下载反代域名", example = "http://pplax-oroxy.pplax.vip")
+    @ApiModelProperty(value = "下载反代域名", example = "http://pplax-oroxy.pplax.xyz")
     private String proxyDomain;
 
     @ApiModelProperty(value = "下载链接类型", example = "basic")

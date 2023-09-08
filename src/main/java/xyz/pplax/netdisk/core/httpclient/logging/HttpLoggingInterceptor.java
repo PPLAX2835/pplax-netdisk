@@ -51,20 +51,13 @@ import static okhttp3.internal.platform.Platform.INFO;
  * this class should not be considered stable and may change slightly between releases. If you need
  * a stable logging format, use your own interceptor.
  * <br>
- * 实现OkHttp拦截器
  * @author zhaojun
  */
 @Slf4j
 public final class HttpLoggingInterceptor implements Interceptor {
-
+	
 	private static final Charset UTF8 = StandardCharsets.UTF_8;
-
-	/**
-	 * 枚举类型Level：
-	 *
-	 * 枚举类型Level定义了不同的日志级别，包括NONE、BASIC、HEADERS和BODY。
-	 * 这些级别决定了日志输出的详细程度。
-	 */
+	
 	public enum Level {
 		/** No logs. */
 		NONE,
@@ -120,81 +113,64 @@ public final class HttpLoggingInterceptor implements Interceptor {
 		 */
 		BODY
 	}
-
-	/**
-	 * 接口Logger：
-	 *
-	 * 定义了一个Logger接口，用于日志输出。
-	 * 提供了默认的Logger.DEFAULT实例，以及额外的DEBUG和TRACE实例。
-	 */
+	
 	public interface Logger {
 		void log(String message);
-
+		
 		/** A {@link Logger} defaults output appropriate for the current platform. */
-		Logger DEFAULT = message -> Platform.get().log(INFO, message, null);
-
+		Logger DEFAULT = message -> Platform.get().log(message, INFO, null);
+		
 		Logger DEBUG = log::debug;
 		Logger TRACE = log::trace;
-
+		
 	}
-
+	
 	public HttpLoggingInterceptor() {
 		this(Logger.DEFAULT);
 	}
-
+	
 	public HttpLoggingInterceptor(Logger logger) {
 		this.logger = logger;
 	}
-
+	
 	private final Logger logger;
-
+	
 	private volatile Set<String> headersToRedact = Collections.emptySet();
-
+	
 	public void redactHeader(String name) {
 		Set<String> newHeadersToRedact = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		newHeadersToRedact.addAll(headersToRedact);
 		newHeadersToRedact.add(name);
 		headersToRedact = newHeadersToRedact;
 	}
-
+	
 	private volatile Level level = Level.NONE;
-
+	
 	/** Change the level at which this interceptor logs. */
 	public HttpLoggingInterceptor setLevel(Level level) {
 		if (level == null) throw new NullPointerException("level == null. Use Level.NONE instead.");
 		this.level = level;
 		return this;
 	}
-
+	
 	public Level getLevel() {
 		return level;
 	}
-
-	/**
-	 * 实现了Interceptor接口的intercept()方法，用于拦截HTTP请求和响应。
-	 * 根据日志级别确定是否记录请求和响应的信息，以及是否记录请求和响应的头部信息和主体。
-	 * 在请求发起前，记录请求的起始信息，包括请求方法、URL、协议等。
-	 * 在请求和响应的各个阶段记录相关信息，包括头部、主体、耗时等。
-	 * 根据是否有主体内容和主体内容的编码方式，输出不同的日志信息。
-	 * 最终返回响应对象。
-	 * @param chain
-	 * @return
-	 * @throws IOException
-	 */
+	
 	@Override public Response intercept(Chain chain) throws IOException {
 		Level level = this.level;
-
+		
 		Request request = chain.request();
 		if (level == Level.NONE) {
 			return chain.proceed(request);
 		}
-
+		
 		boolean logBody = level == Level.BODY;
 		boolean logHeaders = logBody || level == Level.HEADERS;
-
+		
 		RequestBody requestBody = request.body();
 		boolean hasRequestBody = requestBody != null;
-
+		
 		Connection connection = chain.connection();
 		String requestStartMessage = "--> "
 				+ request.method()
@@ -204,7 +180,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
 			requestStartMessage += " (" + requestBody.contentLength() + "-byte body)";
 		}
 		logger.log(requestStartMessage);
-
+		
 		if (logHeaders) {
 			if (hasRequestBody) {
 				// Request body headers are only present when installed as a network interceptor. Force
@@ -216,7 +192,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
 					logger.log("Content-Length: " + requestBody.contentLength());
 				}
 			}
-
+			
 			Headers headers = request.headers();
 			for (int i = 0, count = headers.size(); i < count; i++) {
 				String name = headers.name(i);
@@ -225,7 +201,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
 					logHeader(headers, i);
 				}
 			}
-
+			
 			if (!logBody || !hasRequestBody) {
 				logger.log("--> END " + request.method());
 			} else if (bodyHasUnknownEncoding(request.headers())) {
@@ -235,13 +211,13 @@ public final class HttpLoggingInterceptor implements Interceptor {
 			} else {
 				Buffer buffer = new Buffer();
 				requestBody.writeTo(buffer);
-
+				
 				Charset charset = UTF8;
 				MediaType contentType = requestBody.contentType();
 				if (contentType != null) {
 					charset = contentType.charset(UTF8);
 				}
-
+				
 				logger.log("");
 				if (isPlaintext(buffer)) {
 					logger.log(buffer.readString(charset));
@@ -253,7 +229,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
 				}
 			}
 		}
-
+		
 		long startNs = System.nanoTime();
 		Response response;
 		try {
@@ -263,7 +239,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
 			throw e;
 		}
 		long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
-
+		
 		ResponseBody responseBody = response.body();
 		long contentLength = responseBody.contentLength();
 		String bodySize = contentLength != -1 ? contentLength + "-byte" : "unknown-length";
@@ -272,13 +248,13 @@ public final class HttpLoggingInterceptor implements Interceptor {
 				+ (response.message().isEmpty() ? "" : ' ' + response.message())
 				+ ' ' + response.request().url()
 				+ " (" + tookMs + "ms" + (!logHeaders ? ", " + bodySize + " body" : "") + ')');
-
+		
 		if (logHeaders) {
 			Headers headers = response.headers();
 			for (int i = 0, count = headers.size(); i < count; i++) {
 				logHeader(headers, i);
 			}
-
+			
 			if (!logBody || !HttpHeaders.hasBody(response)) {
 				logger.log("<-- END HTTP");
 			} else if (bodyHasUnknownEncoding(response.headers())) {
@@ -287,7 +263,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
 				BufferedSource source = responseBody.source();
 				source.request(Long.MAX_VALUE); // Buffer the entire body.
 				Buffer buffer = source.getBuffer();
-
+				
 				Long gzippedLength = null;
 				if ("gzip".equalsIgnoreCase(headers.get("Content-Encoding"))) {
 					gzippedLength = buffer.size();
@@ -296,24 +272,24 @@ public final class HttpLoggingInterceptor implements Interceptor {
 						buffer.writeAll(gzippedResponseBody);
 					}
 				}
-
+				
 				Charset charset = UTF8;
 				MediaType contentType = responseBody.contentType();
 				if (contentType != null) {
 					charset = contentType.charset(UTF8);
 				}
-
+				
 				if (!isPlaintext(buffer)) {
 					logger.log("");
 					logger.log("<-- END HTTP (binary " + buffer.size() + "-byte body omitted)");
 					return response;
 				}
-
+				
 				if (contentLength != 0) {
 					logger.log("");
 					logger.log(buffer.clone().readString(charset));
 				}
-
+				
 				if (gzippedLength != null) {
 					logger.log("<-- END HTTP (" + buffer.size() + "-byte, "
 							+ gzippedLength + "-gzipped-byte body)");
@@ -322,25 +298,18 @@ public final class HttpLoggingInterceptor implements Interceptor {
 				}
 			}
 		}
-
+		
 		return response;
 	}
-
-	/**
-	 * 用于记录头部信息，可以根据配置决定是否隐藏某些敏感头部信息。
-	 * @param headers
-	 * @param i
-	 */
+	
 	private void logHeader(Headers headers, int i) {
 		String value = headersToRedact.contains(headers.name(i)) ? "██" : headers.value(i);
 		logger.log(headers.name(i) + ": " + value);
 	}
-
+	
 	/**
 	 * Returns true if the body in question probably contains human readable text. Uses a small sample
 	 * of code points to detect unicode control characters commonly used in binary file signatures.
-	 * 用于判断主体内容是否为纯文本。
-	 * 通过检查主体内容的前64个字节，检查是否包含非可见字符。
 	 */
 	static boolean isPlaintext(Buffer buffer) {
 		try {
@@ -361,12 +330,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
 			return false; // Truncated UTF-8 sequence.
 		}
 	}
-
-	/**
-	 * 用于检查主体内容是否包含未知的编码方式，例如不是"identity"或"gzip"。
-	 * @param headers
-	 * @return
-	 */
+	
 	private static boolean bodyHasUnknownEncoding(Headers headers) {
 		String contentEncoding = headers.get("Content-Encoding");
 		return contentEncoding != null

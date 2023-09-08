@@ -9,7 +9,7 @@ import cn.hutool.core.util.ObjUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.symmetric.SymmetricAlgorithm;
-import xyz.pplax.netdisk.core.config.PPLAXFileProperties;
+import xyz.pplax.netdisk.core.config.PPLAXProperties;
 import xyz.pplax.netdisk.core.exception.ServiceException;
 import xyz.pplax.netdisk.core.util.CodeMsg;
 import xyz.pplax.netdisk.core.util.EnumConvertUtils;
@@ -35,6 +35,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static xyz.pplax.netdisk.module.config.service.SystemConfigService.CACHE_NAME;
+
 /**
  * 系统设置 Service
  *
@@ -42,7 +44,7 @@ import java.util.Optional;
  */
 @Slf4j
 @Service
-@CacheConfig(cacheNames = SystemConfigService.CACHE_NAME)
+@CacheConfig(cacheNames = CACHE_NAME)
 public class SystemConfigService {
     
     public static final String CACHE_NAME = "systemConfig";
@@ -60,7 +62,7 @@ public class SystemConfigService {
     private SystemConfigService systemConfigService;
     
     @Resource
-    private PPLAXFileProperties pplaxFileProperties;
+    private PPLAXProperties pplaxProperties;
     
     @Resource
     private CacheManager cacheManager;
@@ -171,7 +173,7 @@ public class SystemConfigService {
     @Transactional(rollbackFor = Exception.class)
     @CacheEvict(allEntries = true)
     public void resetAdminLoginInfo() {
-        if (!pplaxFileProperties.isDebug()) {
+        if (!pplaxProperties.isDebug()) {
             log.warn("当前为非调试模式, 无法重置管理员登录信息");
             throw new ServiceException(CodeMsg.BAD_REQUEST);
         }

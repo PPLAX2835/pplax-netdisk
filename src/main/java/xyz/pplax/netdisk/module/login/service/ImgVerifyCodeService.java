@@ -14,6 +14,8 @@ import java.util.Objects;
 
 /**
  * 图片验证码 Service
+ *
+ * @author zhaojun
  */
 @Service
 @Slf4j

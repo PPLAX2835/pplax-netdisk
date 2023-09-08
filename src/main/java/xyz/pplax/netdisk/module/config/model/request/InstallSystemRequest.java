@@ -6,6 +6,8 @@ import lombok.Data;
 
 /**
  * 系统初始化请求参数
+ *
+ * @author zhaojun
  */
 @Data
 @ApiModel(description = "系统初始化请求类")
@@ -20,7 +22,7 @@ public class InstallSystemRequest {
     @ApiModelProperty(value = "密码", example = "123456")
     private String password;
 
-    @ApiModelProperty(value = "站点域名", example = "https://pplax.vip")
+    @ApiModelProperty(value = "站点域名", example = "https://pplax.xyz")
     private String domain;
 
 }

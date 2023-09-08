@@ -2,7 +2,7 @@ package xyz.pplax.netdisk.core.util;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
-import xyz.pplax.netdisk.core.constant.PPLAXFileConstant;
+import xyz.pplax.netdisk.core.constant.PPLAXConstant;
 import xyz.pplax.netdisk.core.exception.PreviewException;
 import xyz.pplax.netdisk.core.exception.TextParseException;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ public class HttpUtil {
      * @return  文件内容
      */
     public static String getTextContent(String url) {
-        long maxFileSize = 1024 * PPLAXFileConstant.TEXT_MAX_FILE_SIZE_KB;
+        long maxFileSize = 1024 * PPLAXConstant.TEXT_MAX_FILE_SIZE_KB;
 
         if (getRemoteFileSize(url) > maxFileSize) {
             throw new PreviewException("预览文件超出大小, 最大支持 " + FileUtil.readableFileSize(maxFileSize));

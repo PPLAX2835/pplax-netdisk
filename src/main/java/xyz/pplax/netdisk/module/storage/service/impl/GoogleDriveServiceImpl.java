@@ -420,7 +420,7 @@ public class GoogleDriveServiceImpl extends AbstractProxyTransferService<GoogleD
 	 * @param 	folderPath
 	 * 			所属文件夹路径
 	 *
-	 * @return FileItemResult文件对象
+	 * @return	FileItemResult 文件对象
 	 */
 	public FileItemResult jsonObjectToFileItem(JSONObject jsonObject, String folderPath) {
 		FileItemResult fileItemResult = new FileItemResult();

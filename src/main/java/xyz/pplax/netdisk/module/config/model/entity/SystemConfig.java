@@ -12,6 +12,8 @@ import java.io.Serializable;
 
 /**
  * 系统设置 entity
+ *
+ * @author zhaojun
  */
 @Data
 @ApiModel(description = "系统设置")

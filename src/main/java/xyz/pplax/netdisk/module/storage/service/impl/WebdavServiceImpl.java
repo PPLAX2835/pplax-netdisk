@@ -7,7 +7,7 @@ import cn.hutool.core.util.URLUtil;
 import com.github.sardine.DavResource;
 import com.github.sardine.Sardine;
 import com.github.sardine.SardineFactory;
-import xyz.pplax.netdisk.core.constant.PPLAXFileConstant;
+import xyz.pplax.netdisk.core.constant.PPLAXConstant;
 import xyz.pplax.netdisk.core.util.RequestHolder;
 import xyz.pplax.netdisk.core.util.StringUtils;
 import xyz.pplax.netdisk.module.storage.model.enums.FileTypeEnum;
@@ -70,8 +70,8 @@ public class WebdavServiceImpl extends AbstractProxyTransferService<WebdavParam>
 
 		List<DavResource> resources = sardine.list(requestUrl);
 		for (DavResource davResource : resources) {
-			if (Objects.equals(StringUtils.concat(requestPath, PPLAXFileConstant.PATH_SEPARATOR),
-								StringUtils.concat(davResource.getPath(), PPLAXFileConstant.PATH_SEPARATOR))) {
+			if (Objects.equals(StringUtils.concat(requestPath, PPLAXConstant.PATH_SEPARATOR),
+								StringUtils.concat(davResource.getPath(), PPLAXConstant.PATH_SEPARATOR))) {
 				continue;
 			}
 

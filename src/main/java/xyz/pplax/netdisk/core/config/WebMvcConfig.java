@@ -16,7 +16,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Web 相关配置.
+ * PPLAX Web 相关配置.
+ *
+ * @author zhaojun
  */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
@@ -59,8 +61,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
             factory.setErrorPages(errorPages);
         };
     }
-
-
-
-
+    
+    
+    
+    
 }

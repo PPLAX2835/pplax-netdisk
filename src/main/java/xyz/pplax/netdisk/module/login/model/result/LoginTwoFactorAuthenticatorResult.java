@@ -7,6 +7,8 @@ import lombok.Data;
 
 /**
  * 登陆 2FA 认证生成返回结果
+ *
+ * @author zhaojun
  */
 @Data
 @AllArgsConstructor
