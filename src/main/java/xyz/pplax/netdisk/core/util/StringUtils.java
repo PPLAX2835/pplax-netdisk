@@ -5,8 +5,8 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import xyz.pplax.netdisk.core.constant.PPLAXFileConstant;
-//import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
-//import xyz.pplax.netdisk.module.config.service.SystemConfigService;
+import xyz.pplax.netdisk.module.config.model.dto.SystemConfigDTO;
+import xyz.pplax.netdisk.module.config.service.SystemConfigService;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -274,13 +274,13 @@ public class StringUtils {
      *
      * @return  生成结果
      */
-//    public static String generatorPathLink(String storageKey, String fullPath) {
-//        SystemConfigService systemConfigService = SpringUtil.getBean(SystemConfigService.class);
-//        SystemConfigDTO systemConfig = systemConfigService.getSystemConfig();
-//        String domain = systemConfig.getDomain();
-//        String directLinkPrefix = systemConfig.getDirectLinkPrefix();
-//        return concat(domain, directLinkPrefix, storageKey, encodeAllIgnoreSlashes(fullPath));
-//    }
+    public static String generatorPathLink(String storageKey, String fullPath) {
+        SystemConfigService systemConfigService = SpringUtil.getBean(SystemConfigService.class);
+        SystemConfigDTO systemConfig = systemConfigService.getSystemConfig();
+        String domain = systemConfig.getDomain();
+        String directLinkPrefix = systemConfig.getDirectLinkPrefix();
+        return concat(domain, directLinkPrefix, storageKey, encodeAllIgnoreSlashes(fullPath));
+    }
 
 
     /**

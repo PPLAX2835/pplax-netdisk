@@ -390,7 +390,7 @@ public class GoogleDriveServiceImpl extends AbstractProxyTransferService<GoogleD
 	}
 
 	/**
-	 * 转换 api 返回的 json array 为 zfile 文件对象列表
+	 * 转换 api 返回的 json array 为 FileItemResult 文件对象列表
 	 *
 	 * @param 	jsonArray
 	 * 			api 返回文件 json array
@@ -398,7 +398,7 @@ public class GoogleDriveServiceImpl extends AbstractProxyTransferService<GoogleD
 	 * @param 	folderPath
 	 * 			所属文件夹路径
 	 *
-	 * @return	zfile 文件对象列表
+	 * @return	FileItemResult 文件对象列表
 	 */
 	public List<FileItemResult> jsonArrayToFileList(JSONArray jsonArray, String folderPath) {
 		ArrayList<FileItemResult> fileList = new ArrayList<>();
@@ -412,7 +412,7 @@ public class GoogleDriveServiceImpl extends AbstractProxyTransferService<GoogleD
 
 
 	/**
-	 * 转换 api 返回的 json object 为 zfile 文件对象
+	 * 转换 api 返回的 json object 为 FileItemResult 文件对象
 	 *
 	 * @param 	jsonObject
 	 * 			api 返回文件 json object
@@ -420,7 +420,7 @@ public class GoogleDriveServiceImpl extends AbstractProxyTransferService<GoogleD
 	 * @param 	folderPath
 	 * 			所属文件夹路径
 	 *
-	 * @return	zfile 文件对象
+	 * @return FileItemResult文件对象
 	 */
 	public FileItemResult jsonObjectToFileItem(JSONObject jsonObject, String folderPath) {
 		FileItemResult fileItemResult = new FileItemResult();

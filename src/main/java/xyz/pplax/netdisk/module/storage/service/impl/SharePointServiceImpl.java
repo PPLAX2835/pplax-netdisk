@@ -17,16 +17,16 @@ import org.springframework.stereotype.Service;
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class SharePointServiceImpl extends AbstractSharePointServiceBase<SharePointParam> {
 
-    @Value("${zfile.onedrive.clientId}")
+    @Value("${pplax.onedrive.clientId}")
     protected String clientId;
 
-    @Value("${zfile.onedrive.redirectUri}")
+    @Value("${pplax.onedrive.redirectUri}")
     protected String redirectUri;
 
-    @Value("${zfile.onedrive.clientSecret}")
+    @Value("${pplax.onedrive.clientSecret}")
     protected String clientSecret;
 
-    @Value("${zfile.onedrive.scope}")
+    @Value("${pplax.onedrive.scope}")
     protected String scope;
 
     @Override

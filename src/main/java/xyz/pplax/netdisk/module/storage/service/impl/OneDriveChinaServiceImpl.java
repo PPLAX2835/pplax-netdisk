@@ -17,16 +17,16 @@ import org.springframework.stereotype.Service;
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class OneDriveChinaServiceImpl extends AbstractOneDriveServiceBase<OneDriveChinaParam> {
 
-    @Value("${zfile.onedrive-china.clientId}")
+    @Value("${pplax.onedrive-china.clientId}")
     private String clientId;
 
-    @Value("${zfile.onedrive-china.redirectUri}")
+    @Value("${pplax.onedrive-china.redirectUri}")
     private String redirectUri;
 
-    @Value("${zfile.onedrive-china.clientSecret}")
+    @Value("${pplax.onedrive-china.clientSecret}")
     private String clientSecret;
 
-    @Value("${zfile.onedrive-china.scope}")
+    @Value("${pplax.onedrive-china.scope}")
     private String scope;
 
     @Override
