@@ -1,13 +1,13 @@
 package xyz.pplax.netdisk.module.storage.convert;
 
 import xyz.pplax.netdisk.module.readme.model.entity.ReadmeConfig;
-import xyz.pplax.netdisk.module.storage.model.dto.StorageSourceAllParamDTO;
-import xyz.pplax.netdisk.module.storage.model.dto.StorageSourceDTO;
-import xyz.pplax.netdisk.module.storage.model.entity.StorageSource;
 import xyz.pplax.netdisk.module.storage.model.request.base.SaveStorageSourceRequest;
 import xyz.pplax.netdisk.module.storage.model.result.StorageSourceAdminResult;
+import xyz.pplax.netdisk.module.storage.model.dto.StorageSourceAllParamDTO;
+import xyz.pplax.netdisk.module.storage.model.dto.StorageSourceDTO;
 import xyz.pplax.netdisk.module.storage.model.result.StorageSourceConfigResult;
 import xyz.pplax.netdisk.module.storage.model.result.StorageSourceResult;
+import xyz.pplax.netdisk.module.storage.model.entity.StorageSource;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
@@ -60,8 +60,8 @@ public interface StorageSourceConvert {
 
 
 	StorageSourceDTO entityToDTO(StorageSource storageSource, StorageSourceAllParamDTO storageSourceAllParam);
-	
-	
+
+
 	/**
 	 * 将 SaveStorageSourceRequest 转换为 StorageSource
 	 *
@@ -71,5 +71,5 @@ public interface StorageSourceConvert {
 	 * @return  StorageSource 实体
 	 */
 	StorageSource saveRequestToEntity(SaveStorageSourceRequest saveStorageSourceRequest);
-	
+
 }
