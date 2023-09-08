@@ -3,7 +3,7 @@
     <title>logo 横向</title>
     <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="logo-横向" fill-rule="nonzero">
-            <g id="PPLAX" transform="translate(248.300000, 38.600000)">
+            <g id="ZFILE" transform="translate(248.300000, 38.600000)">
                 <path d="M52.9,0 L52.9,13.1 L18.3,55.6 L18.3,56.2 L55.5,56.2 L55.5,69.4 L0,69.4 L0,55.8 L34.2,13.7 L34.1,13.1 L1.9,13.1 L1.9,0 L52.9,0 Z M115.4,0 L115.4,13.2 L88.2,13.2 L88.2,29.3 L113.4,29.3 L113.4,42.4 L88.2,42.4 L88.2,69.4 L73,69.4 L73,0 L115.4,0 Z" id="路径-2" fill="#595BB3"></path>
                 <polygon id="路径" fill="#000000" points="132.6 69.4 147.8 69.4 147.8 0 132.6 0"></polygon>
                 <polygon id="路径" fill="#000000" points="184.1 56.2 184.1 0 168.9 0 168.9 69.4 211.7 69.4 211.7 56.2"></polygon>
