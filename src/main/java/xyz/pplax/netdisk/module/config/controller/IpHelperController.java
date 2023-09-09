@@ -23,7 +23,11 @@ public class IpHelperController {
     @Resource
     private HttpServletRequest httpServletRequest;
 
-    @GetMapping("clientIp")
+    /**
+     * 获取客户端请求ip地址
+     * @return
+     */
+    @GetMapping("/clientIp")
     public AjaxJson<String> clientIp() {
         String clientIp = ServletUtil.getClientIP(httpServletRequest);
         return AjaxJson.getSuccessData(clientIp);
