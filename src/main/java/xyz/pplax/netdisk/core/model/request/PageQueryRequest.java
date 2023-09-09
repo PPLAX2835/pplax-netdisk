@@ -3,8 +3,9 @@ package xyz.pplax.netdisk.core.model.request;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+
 /**
- * @author zhaojun
+ * 分页参数
  */
 @Data
 public class PageQueryRequest {
